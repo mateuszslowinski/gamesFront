@@ -12,6 +12,11 @@
     transition: 0.5s;
 }
 
+
+.btn:first-letter{
+    text-transform: uppercase;
+}
+
 .btn:hover {
     background: #ff0000;
     color: #FCFCFC;
