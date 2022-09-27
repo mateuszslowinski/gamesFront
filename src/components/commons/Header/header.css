@@ -1,0 +1,30 @@
+.header__container {
+    width: 100vw;
+    height: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+    background-color: #1E1E1F;
+    display: flex;
+    align-items: center;
+}
+.header__container ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 20px;
+    list-style: none;
+}
+.header__container ul a {
+    display: block;
+    margin: 0 10px;
+    padding: 10px 0;
+    color: #FCFCFC;
+    font-size: 1.8rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+.header__container ul a:hover {
+   background-color: #E02735;
+    padding: 10px 5px;
+}

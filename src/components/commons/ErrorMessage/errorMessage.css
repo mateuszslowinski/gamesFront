@@ -1,0 +1,14 @@
+.error {
+    margin: 5px;
+    background-color: #E02735;
+    text-align: center;
+}
+
+.error__message {
+    padding: 5px;
+    font-size: 1.6rem;
+}
+
+.error__message:first-letter {
+    text-transform: uppercase;
+}
