@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
-import axios, {AxiosError, AxiosRequestConfig} from "axios";
+import axios, {AxiosRequestConfig} from "axios";
 import {api} from "../utils/axios";
 
-export function useApi<T>(config: AxiosRequestConfig, deps: any[] = []): [T | null, boolean, AxiosError | undefined] {
+export function useApi<T>(config: AxiosRequestConfig, deps: any = []): [T | null, boolean, string] {
     const [response, setResponse] = useState<T | null>(null);
-    const [error, setError] = useState<AxiosError>();
+    const [error, setError] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(true)
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export function useApi<T>(config: AxiosRequestConfig, deps: any[] = []): [T | nu
                 setResponse(response.data);
             } catch (error) {
                 if (axios.isAxiosError(error)) {
-                    setError(error)
+                    setError(error.message)
                 } else {
                     throw new Error('Błąd niezwiązany z pobieraniem');
                 }
