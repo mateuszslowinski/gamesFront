@@ -15,12 +15,12 @@ export const Header = () => {
     if (error) return <ErrorMessage text={error}/>
     return (
         <>
-            {loading ?
+            {(loading || !publishers) ?
                 <Spinner/>
                 : <div className='header__container'>
                     <ul>
                         <NavLink to='/'><img src="/gameicon.svg" alt=""/></NavLink>
-                        {publishers?.map(publisher => (
+                        {publishers.map(publisher => (
                             <NavLink key={publisher.id} to={`/publisher/${publisher.id}`}>{publisher.name}</NavLink>
                         ))}
                     </ul>
