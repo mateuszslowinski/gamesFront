@@ -24,7 +24,7 @@
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(255, 255, 255,0.3);
 }
-span {
+.spinner span {
     color: #737373;
     font-size: 2.7rem;
     text-transform: uppercase;
