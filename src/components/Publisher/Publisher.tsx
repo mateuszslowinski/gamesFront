@@ -1,44 +1,32 @@
-import {useParams} from "react-router-dom";
-import {useApi} from "../../hooks/useApi";
-import {Spinner} from "../commons/Spinner/Spinner";
-import {ErrorMessage} from "../commons/ErrorMessage/ErrorMessage";
+import {useNavigate} from "react-router-dom";
 import {StudioType, PublisherType} from 'types';
 
 import './Publisher.css';
 
-export const Publisher = () => {
-    const {id} = useParams();
+interface Props {
+    studios: StudioType[]
+    publisher: PublisherType
+}
 
-    const [publisher, loadingPublisher, errorPublisher] = useApi<PublisherType>({
-        method: 'get',
-        url: `/publisher/${id}`
-    }, id);
+export const Publisher = ({studios, publisher}: Props) => {
+    const navigate = useNavigate();
 
-    const [studios, loadingStudios, errorStudios] = useApi<StudioType[]>({
-        method: 'get',
-        url: `/publisher/${id}/studios`
-    }, id);
+    const handleGoToStudioSite = (id: string) => {
+        navigate(`/studio/${id}`)
+    };
 
-    if (errorStudios) return <ErrorMessage text={errorStudios}/>
-    if (errorPublisher) return <ErrorMessage text={errorPublisher}/>
     return (
-        <>
-            {
-                (loadingStudios || loadingPublisher) ? <Spinner/> : (
-                    <div className='publisher__container'>
-                        <h2>{publisher?.name}</h2>
-                        <p>{publisher?.description}</p>
-                        <h3>Studia należące do {publisher?.name}:</h3>
-                        <div className="studios__container">
-                            {studios?.map(studio => (
-                                <div className="studio" key={studio.id}>
-                                    <p>{studio.name}</p>
-                                </div>
-                            ))}
-                        </div>
+        <div className='publisher__container'>
+            <h2>{publisher.name}</h2>
+            <p>{publisher.description}</p>
+            <h3>Studia należące do {publisher.name}:</h3>
+            <div className="studios__container">
+                {studios.map(studio => (
+                    <div className="studio" key={studio.id} onClick={() => handleGoToStudioSite(studio.id)}>
+                        <p>{studio.name}</p>
                     </div>
-                )
-            }
-        </>
+                ))}
+            </div>
+        </div>
     )
 }
