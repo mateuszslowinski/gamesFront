@@ -28,7 +28,18 @@ export const Login = () => {
 
     const handleSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
-
+        try {
+            const response = await api.post('/auth/login', form)
+            const data = response.data;
+            if (response.status === 200) {
+                localStorage.setItem('userToken', data.access_token)
+                navigate('/')
+            } else {
+                setError(data.error)
+            }
+        } catch (e) {
+            setError((e as Error).message)
+        }
     }
 
     if (error) return <ErrorMessage text={error}/>
