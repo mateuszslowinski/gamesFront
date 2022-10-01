@@ -5,16 +5,16 @@ interface Props {
     closeModal: (value: number) => void
 }
 
-export const AddGame = ({closeModal}: Props) => {
+export const AddStudio =({closeModal}:Props)=>{
     const handleSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
     }
 
-    return (
+    return(
         <AddForm
             closeModal={closeModal}
             onSubmit={handleSubmit}
-            formSubtitle='Dodaj nową grę'>
+            formSubtitle='Dodaj nowe studio'>
         </AddForm>
     )
 }
