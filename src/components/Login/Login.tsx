@@ -3,6 +3,7 @@ import {api} from "../../utils/axios";
 import {useNavigate} from "react-router-dom";
 import {ErrorMessage} from "../commons/ErrorMessage/ErrorMessage";
 import {Button} from "../commons/Button/Button";
+import {InputField} from "../commons/InputField/InputField";
 
 import './Login.css';
 
@@ -46,18 +47,19 @@ export const Login = () => {
     return (
         <div className='page__container'>
             <form className='login__form' onSubmit={handleSubmit}>
-                <input
+                <InputField
                     type="email"
-                    name='email'
+                    name="email"
                     placeholder='Email...'
                     value={form.email}
-                    onChange={e => updateForm('email', e.target.value)}
+                    onChange={(e) => updateForm('email', e.target.value)}
                 />
-                <input type="password"
-                       placeholder='Hasło...'
-                       name='hash'
-                       value={form.hash}
-                       onChange={e => updateForm('hash', e.target.value)}
+                <InputField
+                    type='password'
+                    name='hash'
+                    placeholder="Hasło..."
+                    value={form.hash}
+                    onChange={e => updateForm('hash', e.target.value)}
                 />
                 <Button text='Zaloguj'/>
             </form>
