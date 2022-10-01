@@ -9,7 +9,6 @@ import './AdminPage.css';
 
 export const AdminPage = () => {
     const [adminFeatureOpen, setAdminFeatureOpen] = useState<number>(0)
-
     const handleToggleFeature = (featureNumber: number) => {
         if (adminFeatureOpen === featureNumber) {
             setAdminFeatureOpen(0)
@@ -17,7 +16,6 @@ export const AdminPage = () => {
             setAdminFeatureOpen(featureNumber)
         }
     }
-
 
     return (
         <div className='admin__container'>
@@ -28,11 +26,10 @@ export const AdminPage = () => {
                 <Button onClick={() => handleToggleFeature(3)} text='Dodaj nowe studio'/>
                 <Button onClick={() => handleToggleFeature(4)}  text="Dodaj nową platformę"/>
             </div>
-
-            {adminFeatureOpen === 1 && <AddGame/>}
-            {adminFeatureOpen === 2 && <AddPublisher/>}
-            {adminFeatureOpen === 3 && <AddStudio/>}
-            {adminFeatureOpen === 4 && <AddPlatform/>}
+            {adminFeatureOpen === 1 && <AddGame closeModal={setAdminFeatureOpen}/>}
+            {adminFeatureOpen === 2 && <AddPublisher closeModal={setAdminFeatureOpen}/>}
+            {adminFeatureOpen === 3 && <AddStudio closeModal={setAdminFeatureOpen}/>}
+            {adminFeatureOpen === 4 && <AddPlatform closeModal={setAdminFeatureOpen}/>}
         </div>
     )
 }
