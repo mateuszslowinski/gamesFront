@@ -1,7 +1,7 @@
 import {SyntheticEvent, useState} from "react";
 import {api} from "../../utils/axios";
 import {useNavigate} from "react-router-dom";
-import {ErrorMessage} from "../commons/ErrorMessage/ErrorMessage";
+import {ErrorMessage} from "../commons/Messages/ErrorMessage/ErrorMessage";
 import {Button} from "../commons/Button/Button";
 import {InputField} from "../commons/InputField/InputField";
 

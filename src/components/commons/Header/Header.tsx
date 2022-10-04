@@ -1,7 +1,7 @@
 import {NavLink} from "react-router-dom"
 import {useApi} from "../../../hooks/useApi";
 import {Spinner} from "../Spinner/Spinner";
-import {ErrorMessage} from "../ErrorMessage/ErrorMessage";
+import {ErrorMessage} from "../Messages/ErrorMessage/ErrorMessage";
 import {PublisherType} from 'types';
 
 import './header.css';
