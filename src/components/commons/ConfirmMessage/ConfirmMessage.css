@@ -1,0 +1,21 @@
+.confirm__message {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color: #292A2B;
+    z-index: 1;
+}
+
+.confirm__message p {
+    font-size: 2.5rem;
+    margin-top: 150px
+}
+
+
+.confirm__message button {
+    width: 10%;
+    margin-top: 20px;
+    font-size: 1.5rem;
+
+}
