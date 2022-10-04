@@ -7,12 +7,14 @@ import {InputField} from "../../commons/InputField/InputField";
 import {ErrorMessage} from "../../commons/ErrorMessage/ErrorMessage";
 import {TextAreaField} from "../../commons/TextArea/TextAreaField";
 import {AddPublisherFormType} from "../../../types/addd-forms.types";
+import {ConfirmMessage} from "../../commons/ConfirmMessage/ConfirmMessage";
 
 interface Props {
     closeModal: (value: number) => void
 }
 
 export const AddPublisher = ({closeModal}: Props) => {
+    const [open, setOpen] = useState<boolean>(false);
     const [error, setError] = useState('');
     const token = getToken();
     const [form, setForm] = useState<AddPublisherFormType>({
@@ -37,6 +39,7 @@ export const AddPublisher = ({closeModal}: Props) => {
             });
             if (response.status === 201) {
                 setForm({name: '', description: ''});
+                setOpen(true);
             } else {
                 setError(response.data.error);
             }
@@ -47,25 +50,29 @@ export const AddPublisher = ({closeModal}: Props) => {
 
     if (error) return <ErrorMessage text={error}/>
     return (
-        <AddForm
-            closeModal={closeModal}
-            onSubmit={handleSubmit}
-            formSubtitle='Dodaj nowego wydawce:'
-        >
-            <InputField
-                name='name'
-                type='text'
-                placeholder='Nazwa wydawcy...'
-                value={form.name}
-                onChange={(e) => updateForm('name', e.target.value)}
-            />
-            <TextAreaField
-                name='description'
-                value={form.description}
-                onChange={(e) => updateForm('description', e.target.value)}
-                placeholder='Opis wydawcy...'
-            />
-            <Button text='Dodaj'/>
-        </AddForm>
+        <>
+            {open && <ConfirmMessage text='Wydawca został dodany!' onClick={()=>setOpen(false)}/>}
+            <AddForm
+                closeModal={closeModal}
+                onSubmit={handleSubmit}
+                formSubtitle='Dodaj nowego wydawce:'
+            >
+
+                <InputField
+                    name='name'
+                    type='text'
+                    placeholder='Nazwa wydawcy...'
+                    value={form.name}
+                    onChange={(e) => updateForm('name', e.target.value)}
+                />
+                <TextAreaField
+                    name='description'
+                    value={form.description}
+                    onChange={(e) => updateForm('description', e.target.value)}
+                    placeholder='Opis wydawcy...'
+                />
+                <Button text='Dodaj'/>
+            </AddForm>
+        </>
     )
 }
