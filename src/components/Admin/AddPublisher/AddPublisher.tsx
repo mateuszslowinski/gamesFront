@@ -1,13 +1,7 @@
 import {useState} from "react";
 import {api} from "../../../utils/axios";
-import {useForm} from "react-hook-form";
 import {getToken} from "../../../hooks/getToken";
-import {AddForm} from "../AddForm";
-import {Button} from '../../commons/Button/Button';
-import {InputField} from "../../commons/InputField/InputField";
-import {ErrorMessage} from "../../commons/Messages/ErrorMessage/ErrorMessage";
-import {TextAreaField} from "../../commons/TextArea/TextAreaField";
-import {ConfirmMessage} from "../../commons/Messages/ConfirmMessage/ConfirmMessage";
+import {AddPublisherMain} from "./AddPublisherMain";
 import {AddPublisherFormType} from "../../../types/addd-forms.types";
 
 interface Props {
@@ -22,14 +16,6 @@ export const AddPublisher = ({closeModal}: Props) => {
         name: '',
         description: ""
     });
-
-    const {
-        handleSubmit,
-        register,
-        formState: {
-            errors: {name, description},
-        },
-    } = useForm<AddPublisherFormType>();
 
     const updateForm = (key: string, value: string) => {
         setForm(form => ({
@@ -56,44 +42,16 @@ export const AddPublisher = ({closeModal}: Props) => {
         }
     }
 
-    if (error) return <ErrorMessage text={error}/>
+
     return (
-        <>
-            {open && <ConfirmMessage text='Wydawca został dodany!' onClick={()=>setOpen(false)}/>}
-            <AddForm
-                onSubmit={handleSubmit(onSubmit)}
+            <AddPublisherMain
                 closeModal={closeModal}
-                formSubtitle='Dodaj nowego wydawce:'
-            >
-                <InputField
-                    type='text'
-                    placeholder='Nazwa wydawcy...'
-                    error={name}
-                    validation={register('name', {
-                        required: 'Nazwa wydawcy jest wymagana',
-                        maxLength: {
-                            value: 50,
-                            message: 'Nazwa nie może przekraczać 50 znaków',
-                        },
-                    })}
-                    value={form.name}
-                    onChange={(e) => updateForm('name', e.target.value)}
-                />
-                <TextAreaField
-                    value={form.description}
-                    error={description}
-                    validation={register('description', {
-                        required: 'Opis wydawcy jest wymagany',
-                        maxLength: {
-                            value: 1500,
-                            message: 'Opis wydawcy nie może przekraczać 1500 znaków',
-                        },
-                    })}
-                    onChange={(e) => updateForm('description', e.target.value)}
-                    placeholder='Opis wydawcy...'
-                />
-                <Button text='Dodaj'/>
-            </AddForm>
-        </>
+                form={form}
+                onChange={updateForm}
+                onSubmit={onSubmit}
+                closeConfirmMessage={() => setOpen(false)}
+                openConfirmMessage={open}
+                error={error}
+            />
     )
 }
