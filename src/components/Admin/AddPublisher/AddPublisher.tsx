@@ -1,20 +1,18 @@
 import {useState} from "react";
 import {api} from "../../../utils/axios";
+import {useForm} from "react-hook-form";
 import {getToken} from "../../../hooks/getToken";
 import {AddForm} from "../AddForm";
 import {Button} from '../../commons/Button/Button';
 import {InputField} from "../../commons/InputField/InputField";
 import {ErrorMessage} from "../../commons/Messages/ErrorMessage/ErrorMessage";
 import {TextAreaField} from "../../commons/TextArea/TextAreaField";
-import {AddPublisherFormType} from "../../../types/addd-forms.types";
 import {ConfirmMessage} from "../../commons/Messages/ConfirmMessage/ConfirmMessage";
-import {useForm} from "react-hook-form";
-
+import {AddPublisherFormType} from "../../../types/addd-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
 }
-
 
 export const AddPublisher = ({closeModal}: Props) => {
     const [open, setOpen] = useState<boolean>(false);
@@ -87,8 +85,8 @@ export const AddPublisher = ({closeModal}: Props) => {
                     validation={register('description', {
                         required: 'Opis wydawcy jest wymagany',
                         maxLength: {
-                            value: 5,
-                            message: 'Opis nie może przekraczać 1500 znaków',
+                            value: 1500,
+                            message: 'Opis wydawcy nie może przekraczać 1500 znaków',
                         },
                     })}
                     onChange={(e) => updateForm('description', e.target.value)}
