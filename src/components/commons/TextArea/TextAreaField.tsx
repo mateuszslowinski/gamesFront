@@ -1,19 +1,24 @@
 import React from "react";
 import './TextAreaField.css';
+import {UseFormRegisterReturn} from "react-hook-form";
 
 interface Props {
-    name: string
     value: string
     onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
     placeholder: string
+    validation: UseFormRegisterReturn
+    error: any
 }
 
-export const TextAreaField = ({name, value, placeholder, onChange}: Props) => (
+export const TextAreaField = ({ value, placeholder, onChange, validation, error}: Props) => (
+    <>
     <textarea
         className='text__area__field'
-        name={name}
         value={value}
+        {...validation}
         placeholder={placeholder}
         onChange={onChange}
     />
+        {error && <div className='text__error__message'>{error.message}</div>}
+    </>
 )
