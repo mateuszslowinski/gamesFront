@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {ErrorMessage} from "../commons/Messages/ErrorMessage/ErrorMessage";
 import {Button} from "../commons/Button/Button";
-import {InputField} from "../commons/InputField/InputField";
+import {InputField} from "../commons/FormFields/InputField/InputField";
 import {LoginFormTypes} from "../../types/login.types";
 import {emailValidate} from "../../utils/pattern.validate";
 

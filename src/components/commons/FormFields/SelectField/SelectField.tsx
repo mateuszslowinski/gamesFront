@@ -7,14 +7,15 @@ interface Props {
     validation: UseFormRegisterReturn
     options: { id: string; name: string }[]
     error:any
+    text:string
 }
 
-export const SelectField = ({validation, options,error}: Props) => (
+export const SelectField = ({validation, options,error,text}: Props) => (
     <div className='select__field__container'>
         <select
             {...validation}
            >
-            <option value="">Wybierz wydawce:</option>
+            <option value="">{text}</option>
             {options.map(option => (
                 <option
                     key={option.id}

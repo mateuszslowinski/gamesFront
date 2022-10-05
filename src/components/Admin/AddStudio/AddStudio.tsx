@@ -21,7 +21,6 @@ export const AddStudio = ({closeModal}: Props) => {
         url: '/publisher'
     });
 
-
     const onSubmit = async (data: AddStudioFormType) => {
         try {
             if (data.image) {

@@ -107,6 +107,7 @@ export const AddStudioMain = ({
                 validation={register('ownerId')}
                 options={publishers}
                 error={ownerId}
+                text="Wybierz wydawce:"
             />
             <InputField
                 type='file'
