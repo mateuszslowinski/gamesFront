@@ -1,0 +1,5 @@
+.select__field__container select{
+    padding: 5px;
+    margin: 10px;
+    font-size: 1.5rem;
+}
