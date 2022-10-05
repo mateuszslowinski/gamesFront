@@ -6,10 +6,10 @@ interface Props {
 }
 
 export const Studio = ({studio}: Props) => {
-    const {name, description, image, employees, founded, country} = studio
+    const {id,name, description, employees, founded, country} = studio
     return (
         <div className="studio__container">
-            <img src={`${image}`} alt={`${name} logo`}/>
+            <img src={`${process.env.REACT_APP_API_URL}/studio/photo/${id}`} alt={`${name} logo`}/>
             <p>{description}</p>
             <div className='studio__details'>
                 <span>Liczba pracowników:
