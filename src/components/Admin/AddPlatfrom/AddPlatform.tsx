@@ -12,27 +12,15 @@ export const AddPlatform = ({closeModal}: Props) => {
     const [open, setOpen] = useState<boolean>(false);
     const [error, setError] = useState('');
     const token = getToken();
-    const [form, setForm] = useState<AddPlatformFormType>({
-        name: '',
-        description: ""
-    });
 
-    const updateForm = (key: string, value: string) => {
-        setForm(form => ({
-            ...form,
-            [key]: value,
-        }));
-    };
-
-    const onSubmit = async () => {
+    const onSubmit = async (data: AddPlatformFormType) => {
         try {
-            const response = await api.post('/platform', form, {
+            const response = await api.post('/platform', data, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 },
             });
             if (response.status === 201) {
-                setForm({name: '', description: ''});
                 setOpen(true);
             } else {
                 setError(response.data.error);
@@ -45,11 +33,10 @@ export const AddPlatform = ({closeModal}: Props) => {
     return (
         <AddPlatformMain
             closeModal={closeModal}
-            form={form}
-            onChange={updateForm}
             onSubmit={onSubmit}
             closeConfirmMessage={() => setOpen(false)}
             openConfirmMessage={open}
-            error={error}/>
+            error={error}
+        />
     )
 }

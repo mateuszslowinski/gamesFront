@@ -1,28 +1,36 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useForm} from "react-hook-form";
 import {AddForm} from "../AddForm";
-import {InputField} from "../../commons/InputField/InputField";
-import {TextAreaField} from "../../commons/TextArea/TextAreaField";
+import {InputField} from "../../commons/FormFields/InputField/InputField";
+import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
 import {AddPlatformFormType} from "../../../types/addd-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
     onSubmit: any
-    form: AddPlatformFormType
-    onChange: (arg: string, arg2: string) => void
     closeConfirmMessage: () => void
     openConfirmMessage: boolean
     error: string
 }
 
-export const AddPlatformMain = ({closeModal, onSubmit, form, onChange, closeConfirmMessage, openConfirmMessage, error}: Props) => {
+export const AddPlatformMain = ({closeModal, onSubmit, closeConfirmMessage, openConfirmMessage, error}: Props) => {
     const {
         handleSubmit,
+        reset,
         register,
         formState: {
             errors: {name, description},
         },
-    } = useForm<AddPlatformFormType>();
+    } = useForm<AddPlatformFormType>({
+        defaultValues: {
+            name: '',
+            description: ""
+        }
+    });
+
+    useEffect(() => {
+        reset()
+    }, [openConfirmMessage]);
 
     return (
         <AddForm
@@ -42,14 +50,12 @@ export const AddPlatformMain = ({closeModal, onSubmit, form, onChange, closeConf
                     required: 'Nazwa wydawcy jest wymagana',
                     maxLength: {
                         value: 40,
-                        message: 'Nazwa nie może przekraczać 50 znaków',
+                        message: 'Nazwa nie może przekraczać 40 znaków',
                     },
                 })}
-                value={form.name}
-                onChange={(e) => onChange('name', e.target.value)}
+
             />
             <TextAreaField
-                value={form.description}
                 error={description}
                 validation={register('description', {
                     required: 'Opis platformy jest wymagany',
@@ -58,7 +64,6 @@ export const AddPlatformMain = ({closeModal, onSubmit, form, onChange, closeConf
                         message: 'Opis platformy nie może przekraczać 1500 znaków',
                     },
                 })}
-                onChange={(e) => onChange('description', e.target.value)}
                 placeholder='Opis platformy...'
             />
         </AddForm>
