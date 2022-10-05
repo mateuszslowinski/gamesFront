@@ -10,5 +10,5 @@ export interface AddStudioFormType extends AddPublisherFormType {
     country: string
     founded: string
     employees: number
-    image: File | null
+    image: FileList | null
 }
