@@ -1,28 +1,36 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useForm} from "react-hook-form";
 import {AddForm} from "../AddForm";
-import {InputField} from "../../commons/InputField/InputField";
-import {TextAreaField} from "../../commons/TextArea/TextAreaField";
-import {AddPublisherFormType} from "../../../types/addd-forms.types";
+import {InputField} from "../../commons/FormFields/InputField/InputField";
+import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
+import {AddPublisherFormType} from "games/src/types/addd-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
     onSubmit: any
-    form: AddPublisherFormType
-    onChange: (arg: string, arg2: string) => void
     closeConfirmMessage: () => void
     openConfirmMessage: boolean
     error: string
 }
 
-export const AddPublisherMain = ({closeModal, onSubmit, form, onChange, closeConfirmMessage, openConfirmMessage, error}: Props) => {
+export const AddPublisherMain = ({closeModal, onSubmit, closeConfirmMessage, openConfirmMessage, error}: Props) => {
     const {
         handleSubmit,
         register,
+        reset,
         formState: {
             errors: {name, description},
         },
-    } = useForm<AddPublisherFormType>();
+    } = useForm<AddPublisherFormType>({
+        defaultValues: {
+            name: '',
+            description: ""
+        }
+    });
+
+    useEffect(() => {
+        reset()
+    }, [openConfirmMessage]);
 
     return (
         <AddForm
@@ -45,11 +53,8 @@ export const AddPublisherMain = ({closeModal, onSubmit, form, onChange, closeCon
                         message: 'Nazwa nie może przekraczać 50 znaków',
                     },
                 })}
-                value={form.name}
-                onChange={(e) => onChange('name', e.target.value)}
             />
             <TextAreaField
-                value={form.description}
                 error={description}
                 validation={register('description', {
                     required: 'Opis wydawcy jest wymagany',
@@ -58,7 +63,6 @@ export const AddPublisherMain = ({closeModal, onSubmit, form, onChange, closeCon
                         message: 'Opis wydawcy nie może przekraczać 1500 znaków',
                     },
                 })}
-                onChange={(e) => onChange('description', e.target.value)}
                 placeholder='Opis wydawcy...'
             />
         </AddForm>

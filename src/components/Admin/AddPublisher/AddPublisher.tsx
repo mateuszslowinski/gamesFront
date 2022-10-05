@@ -12,27 +12,15 @@ export const AddPublisher = ({closeModal}: Props) => {
     const [open, setOpen] = useState<boolean>(false);
     const [error, setError] = useState('');
     const token = getToken();
-    const [form, setForm] = useState<AddPublisherFormType>({
-        name: '',
-        description: ""
-    });
 
-    const updateForm = (key: string, value: string) => {
-        setForm(form => ({
-            ...form,
-            [key]: value,
-        }));
-    };
-
-    const onSubmit = async () => {
+    const onSubmit = async (data:AddPublisherFormType) => {
         try {
-            const response = await api.post('/publisher', form, {
+            const response = await api.post('/publisher', data, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 },
             });
             if (response.status === 201) {
-                setForm({name: '', description: ''});
                 setOpen(true);
             } else {
                 setError(response.data.error);
@@ -42,12 +30,9 @@ export const AddPublisher = ({closeModal}: Props) => {
         }
     }
 
-
     return (
             <AddPublisherMain
                 closeModal={closeModal}
-                form={form}
-                onChange={updateForm}
                 onSubmit={onSubmit}
                 closeConfirmMessage={() => setOpen(false)}
                 openConfirmMessage={open}
