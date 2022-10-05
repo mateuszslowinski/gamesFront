@@ -1,0 +1,15 @@
+.add__form__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #292A2B;
+}
+
+.add__form__container button {
+    width: 20%;
+}

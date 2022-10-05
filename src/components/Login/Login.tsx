@@ -1,23 +1,30 @@
-import {SyntheticEvent, useState} from "react";
+import {useState} from "react";
 import {api} from "../../utils/axios";
 import {useNavigate} from "react-router-dom";
-import {ErrorMessage} from "../commons/ErrorMessage/ErrorMessage";
+import {useForm} from "react-hook-form";
+import {ErrorMessage} from "../commons/Messages/ErrorMessage/ErrorMessage";
 import {Button} from "../commons/Button/Button";
+import {InputField} from "../commons/FormFields/InputField/InputField";
+import {LoginFormTypes} from "../../types/login.types";
+import {emailValidate} from "../../utils/pattern.validate";
 
 import './Login.css';
 
-interface LoginForm {
-    email: string
-    hash: string
-}
-
 export const Login = () => {
     const [error, setError] = useState('');
-    const [form, setForm] = useState<LoginForm>({
+    const [form, setForm] = useState<LoginFormTypes>({
         email: '',
         hash: ''
     });
     const navigate = useNavigate();
+
+    const {
+        handleSubmit,
+        register,
+        formState: {
+            errors: {email, hash},
+        },
+    } = useForm<LoginFormTypes>();
 
     const updateForm = (key: string, value: string) => {
         setForm(form => ({
@@ -26,8 +33,7 @@ export const Login = () => {
         }));
     };
 
-    const handleSubmit = async (e: SyntheticEvent) => {
-        e.preventDefault();
+    const onSubmit = async () => {
         try {
             const response = await api.post('/auth/login', form)
             const data = response.data;
@@ -45,19 +51,30 @@ export const Login = () => {
     if (error) return <ErrorMessage text={error}/>
     return (
         <div className='page__container'>
-            <form className='login__form' onSubmit={handleSubmit}>
-                <input
+            <form className='login__form' onSubmit={handleSubmit(onSubmit)}>
+                <InputField
                     type="email"
-                    name='email'
-                    placeholder='Email...'
                     value={form.email}
-                    onChange={e => updateForm('email', e.target.value)}
+                    error={email}
+                    {...register('email', {
+                        required: 'Email jest wymagany',
+                        pattern: {
+                            value: emailValidate,
+                            message: "Podaj poprawy address email",
+                        },
+                    })}
+                    placeholder='Email...'
+                    onChange={(e) => updateForm('email', e.target.value)}
                 />
-                <input type="password"
-                       placeholder='Hasło...'
-                       name='hash'
-                       value={form.hash}
-                       onChange={e => updateForm('hash', e.target.value)}
+                <InputField
+                    type='password'
+                    value={form.hash}
+                    error={hash}
+                    validation={register('hash', {
+                        required: 'Hasło jest wymagane',
+                    })}
+                    placeholder="Hasło..."
+                    onChange={e => updateForm('hash', e.target.value)}
                 />
                 <Button text='Zaloguj'/>
             </form>

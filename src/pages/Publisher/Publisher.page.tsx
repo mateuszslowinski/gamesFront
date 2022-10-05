@@ -2,7 +2,7 @@ import {Publisher} from "../../components/Publisher/Publisher";
 import {useApi} from "../../hooks/useApi";
 import {useParams} from "react-router-dom";
 import {StudioType, PublisherType} from 'types';
-import {ErrorMessage} from "../../components/commons/ErrorMessage/ErrorMessage";
+import {ErrorMessage} from "../../components/commons/Messages/ErrorMessage/ErrorMessage";
 import {Spinner} from "../../components/commons/Spinner/Spinner";
 
 
