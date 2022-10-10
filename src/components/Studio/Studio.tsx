@@ -14,19 +14,23 @@ interface Props {
 }
 
 export const Studio = ({studio, games}: Props) => {
-    const [openEditForm, setOpenEditForm] = useState(false);
+    const [openEditForm, setOpenEditForm] = useState(0);
     const navigate = useNavigate();
     const token = getToken();
     const {id, name, description, employees, founded, country} = studio;
 
     return (
         <div className="studio__container">
-            {openEditForm && <EditStudio/>}
+            {openEditForm === 1 && <EditStudio closeModal={() => setOpenEditForm(0)}/>}
             <Button
                 text="Wróc na poprzednią stronę"
                 onClick={() => navigate(-1)}
             />
-            {token && <Button text='Edytuj studio' onClick={() => setOpenEditForm(true)}/>}
+            {token && <Button
+                text='Edytuj studio'
+                onClick={() => setOpenEditForm(1)}
+            />
+            }
             <img src={`${process.env.REACT_APP_API_URL}/studio/photo/${id}`} alt={`${name} logo`}/>
             <p>{description}</p>
             <div className='studio__details'>
