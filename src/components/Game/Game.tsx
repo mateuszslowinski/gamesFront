@@ -38,7 +38,11 @@ export const Game = ({game}: Props) => {
                         />
                         <div className="game__details">
                             <span>Deweloper:
-                                <p>{studio.name}</p>
+                             <p className='publisher__navigate'
+                                 onClick={()=> navigate(`../studio/${studio.id}`)}
+                             >
+                                 {studio.name}
+                             </p>
                             </span>
                             <span>Data wydania:
                                 <p>{releaseDate.toString().slice(0, 10)}</p>

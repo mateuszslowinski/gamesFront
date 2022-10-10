@@ -29,12 +29,23 @@
     margin: 10px;
     padding: 10px;
 }
-.game__details span,.game__description p{
+
+.game__details span, .game__description p {
     font-size: 1.4rem;
 }
+
 .game__details p {
     font-size: 1.6rem;
     margin: 10px 0;
+    padding: 5px;
+}
+
+.publisher__navigate {
+    cursor: pointer;
+    transition: 0.6s;
+}
+.publisher__navigate:hover{
+    background: red;
 }
 
 .game__description {
