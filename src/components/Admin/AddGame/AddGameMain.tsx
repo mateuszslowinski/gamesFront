@@ -4,7 +4,7 @@ import {Form} from "../Form";
 import {InputField} from "../../commons/FormFields/InputField/InputField";
 import {SelectField} from "../../commons/FormFields/SelectField/SelectField";
 import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
-import {AddGameFormType} from "../../../types/addd-forms.types";
+import {AddGameFormType} from "../../../types/add-forms.types";
 
 interface Props {
     closeModal: (value: number) => void

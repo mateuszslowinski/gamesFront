@@ -18,3 +18,4 @@ export interface AddGameFormType extends AddPublisherFormType {
     releaseDate: Date | null
     image: FileList | null
 }
+

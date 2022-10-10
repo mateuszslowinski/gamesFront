@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 import {Form} from "../Form";
 import {InputField} from "../../commons/FormFields/InputField/InputField";
 import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
-import {AddPlatformFormType} from "../../../types/addd-forms.types";
+import {AddPlatformFormType} from "../../../types/add-forms.types";
 
 interface Props {
     closeModal: (value: number) => void

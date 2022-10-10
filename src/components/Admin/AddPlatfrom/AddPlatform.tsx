@@ -2,7 +2,7 @@ import {useState} from "react";
 import {api} from "../../../utils/axios";
 import {getToken} from "../../../hooks/getToken";
 import {AddPlatformMain} from "./AddPlatformMain";
-import {AddPlatformFormType} from "../../../types/addd-forms.types";
+import {AddPlatformFormType} from "../../../types/add-forms.types";
 
 interface Props {
     closeModal: (value: number) => void

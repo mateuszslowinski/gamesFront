@@ -6,7 +6,7 @@ import {AddGameMain} from "./AddGameMain";
 import {Spinner} from "../../commons/Spinner/Spinner";
 import {ErrorMessage} from "../../commons/Messages/ErrorMessage/ErrorMessage";
 import {StudioType} from 'types';
-import {AddGameFormType} from "../../../types/addd-forms.types";
+import {AddGameFormType} from "../../../types/add-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
