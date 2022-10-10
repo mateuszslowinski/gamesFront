@@ -11,9 +11,10 @@ import {EditStudioFormType} from "../../../../types/edit-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
+    studio:StudioType
 }
 
-export const EditStudio = ({closeModal}: Props) => {
+export const EditStudio = ({closeModal,studio}: Props) => {
     const {id} = useParams();
     const [error, setError] = useState('');
     const token = getToken();
@@ -23,11 +24,6 @@ export const EditStudio = ({closeModal}: Props) => {
         method: 'get',
         url: '/publisher'
     });
-    const [studio, loadingStudio, errorStudio] = useApi<StudioType>({
-        method: 'get',
-        url: `/studio/${id}`
-    }, id);
-
 
     const onSubmit = async (data: EditStudioFormType) => {
         try {
@@ -54,10 +50,9 @@ export const EditStudio = ({closeModal}: Props) => {
     }
 
 
-    if (errorStudio) return <ErrorMessage text={errorStudio}/>
     if (getPublishersError) return <ErrorMessage text={getPublishersError}/>
     return (
-        (!publishers || !studio || loadingStudio || loadingPublishers)
+        (!publishers || loadingPublishers)
             ? <Spinner/>
             : <EditStudioMain
                 onSubmit={onSubmit}

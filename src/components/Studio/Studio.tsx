@@ -21,7 +21,7 @@ export const Studio = ({studio, games}: Props) => {
 
     return (
         <div className="studio__container">
-            {openEditForm === 1 && <EditStudio closeModal={() => setOpenEditForm(0)}/>}
+            {openEditForm === 1 && <EditStudio closeModal={() => setOpenEditForm(0)} studio={studio}/>}
             <Button
                 text="Wróc na poprzednią stronę"
                 onClick={() => navigate(-1)}
