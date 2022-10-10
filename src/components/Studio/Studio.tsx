@@ -1,12 +1,17 @@
+import {NavLink} from "react-router-dom";
 import {StudioType} from 'types';
+import {GameType} from 'types';
+
 import './Studio.css';
 
 interface Props {
     studio: StudioType
+    games: GameType[]
 }
 
-export const Studio = ({studio}: Props) => {
-    const {id,name, description, employees, founded, country} = studio
+export const Studio = ({studio, games}: Props) => {
+    const {id, name, description, employees, founded, country} = studio
+
     return (
         <div className="studio__container">
             <img src={`${process.env.REACT_APP_API_URL}/studio/photo/${id}`} alt={`${name} logo`}/>
@@ -26,22 +31,17 @@ export const Studio = ({studio}: Props) => {
             <table>
                 <thead>
                 <tr>
-                    <th>Rok wydania</th>
                     <th>Tytuł</th>
-                    <th>Platforma</th>
+                    <th>Data wydania</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th>2010</th>
-                    <td>Jakas nazwa gry dluższa nazwa VI</td>
-                    <td>ps3 ps4 ps5</td>
-                </tr>
-                <tr>
-                    <th>2022</th>
-                    <td>Nazwa</td>
-                    <td>p5</td>
-                </tr>
+                {games.map(game => (
+                    <tr key={game.id}>
+                        <th><NavLink to={`../game/${game.id}`}>{game.name}</NavLink></th>
+                        <th>{game.releaseDate.toString().slice(0, 10)}</th>
+                    </tr>
+                ))}
                 </tbody>
             </table>
         </div>
