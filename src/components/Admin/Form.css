@@ -13,3 +13,15 @@
 .form__container button {
     width: 20%;
 }
+
+.form__container h3 {
+    font-size: 3rem;
+    margin: 5px 0 15px;
+    background-color: #737373;
+    padding: 20px;
+}
+.form__container p {
+    font-size: 1.2rem !important;
+    margin: 5px 5px 0 !important;
+    text-align: left !important;
+}
