@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {AddGame} from "../../components/Admin/AddGame/AddGame";
-import {AddPublisher} from "../../components/Admin/AddPublisher/AddPublisher";
+import {AddPublisher} from "../../components/Admin/Publisher/AddPublisher/AddPublisher";
 import {AddStudio} from "../../components/Admin/Studio/AddStudio/AddStudio";
 import {AddPlatform} from "../../components/Admin/AddPlatfrom/AddPlatform";
 import {Button} from "../../components/commons/Button/Button";

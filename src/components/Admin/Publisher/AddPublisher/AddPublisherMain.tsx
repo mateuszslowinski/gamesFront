@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import {useForm} from "react-hook-form";
-import {Form} from "../Form";
-import {InputField} from "../../commons/FormFields/InputField/InputField";
-import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
+import {Form} from "../../Form";
+import {InputField} from "../../../commons/FormFields/InputField/InputField";
+import {TextAreaField} from "../../../commons/FormFields/TextArea/TextAreaField";
 import {AddPublisherFormType} from "games/src/types/add-forms.types";
 
 interface Props {
