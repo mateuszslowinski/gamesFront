@@ -1,11 +1,11 @@
 import {useEffect} from "react";
 import {useForm} from "react-hook-form";
-import {Form} from "../Form";
-import {InputField} from "../../commons/FormFields/InputField/InputField";
-import {NumberInput} from "../../commons/FormFields/NumberInput/NumberInput";
-import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
-import {SelectField} from "../../commons/FormFields/SelectField/SelectField";
-import {AddStudioFormType} from "../../../types/addd-forms.types";
+import {Form} from "../../Form";
+import {InputField} from "../../../commons/FormFields/InputField/InputField";
+import {NumberInput} from "../../../commons/FormFields/NumberInput/NumberInput";
+import {TextAreaField} from "../../../commons/FormFields/TextArea/TextAreaField";
+import {SelectField} from "../../../commons/FormFields/SelectField/SelectField";
+import {AddStudioFormType} from "../../../../types/addd-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
@@ -61,7 +61,6 @@ export const AddStudioMain = ({
         >
             <InputField
                 type='text'
-                placeholder='Nazwa studia...'
                 error={name}
                 validation={register('name', {
                     required: 'Nazwa studia jest wymagana',
@@ -70,10 +69,10 @@ export const AddStudioMain = ({
                         message: 'Nazwa studia nie może przekraczać 50 znaków',
                     },
                 })}
+                text='Nazwa studia'
             />
             <InputField
                 type='text'
-                placeholder='Kraj pochodzenia...'
                 error={country}
                 validation={register('country', {
                     required: 'Kraj pochodzenia jest wymagany',
@@ -82,6 +81,7 @@ export const AddStudioMain = ({
                         message: 'Nazwa studia nie może przekraczać 50 znaków',
                     },
                 })}
+                text="Kraj pochodzenia:"
             />
             <NumberInput
                 text='Liczba pracowników:'
@@ -103,6 +103,8 @@ export const AddStudioMain = ({
                 validation={register('founded', {
                     required: 'Rok założenia jest wymagany',
                 })}
+                text="Data założenia:"
+
             />
             <SelectField
                 validation={register('ownerId')}
