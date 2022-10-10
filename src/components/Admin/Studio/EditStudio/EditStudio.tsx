@@ -1,6 +1,9 @@
+import {useState} from "react";
 import {useForm} from "react-hook-form";
 import {useParams} from "react-router-dom";
+import {getToken} from "../../../../hooks/getToken";
 import {useApi} from "../../../../hooks/useApi";
+import {api} from "../../../../utils/axios";
 import {Form} from "../../Form";
 import {InputField} from "../../../commons/FormFields/InputField/InputField";
 import {NumberInput} from "../../../commons/FormFields/NumberInput/NumberInput";
@@ -10,9 +13,17 @@ import {Spinner} from "../../../commons/Spinner/Spinner";
 import {ErrorMessage} from "../../../commons/Messages/ErrorMessage/ErrorMessage";
 import {PublisherType, StudioType} from 'types';
 import {EditStudioFormType} from "../../../../types/edit-forms.types";
+import {AddStudioFormType} from "../../../../types/add-forms.types";
 
-export const EditStudio = () => {
-    const {id} = useParams()
+interface Props {
+    closeModal: (value: number) => void
+}
+
+export const EditStudio = ({closeModal}:Props) => {
+    const {id} = useParams();
+    const [open, setOpen] = useState<boolean>(false);
+    const [error, setError] = useState('');
+    const token = getToken();
     const [publishers, loadingPublishers, getPublishersError] = useApi<PublisherType[]>({
         method: 'get',
         url: '/publisher'
@@ -23,11 +34,37 @@ export const EditStudio = () => {
     }, id);
 
     const {
+        handleSubmit,
         register,
         formState: {
             errors: {name, description, ownerId, country, founded, employees, image},
         },
     } = useForm<EditStudioFormType>();
+
+    const onSubmit = async (data: AddStudioFormType) => {
+        try {
+            if (data.image) {
+                const newData = {
+                    ...data,
+                    image: data.image[0]
+                }
+                const response = await api.patch(`/studio/${id}`, newData, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                if (response.status === 200) {
+                    setOpen(true);
+                } else {
+                    setError(response.data.error);
+                }
+            }
+        } catch (e) {
+            setError((e as Error).message);
+        }
+    }
+
 
     if (errorStudio) return <ErrorMessage text={errorStudio}/>
     if (getPublishersError) return <ErrorMessage text={getPublishersError}/>
@@ -36,16 +73,13 @@ export const EditStudio = () => {
             {(!publishers || !studio || loadingStudio || loadingPublishers)
                 ? <Spinner/> : (
                     <Form
-                        closeConfirmMessage={() => {
-                        }}
+                        closeConfirmMessage={() => setOpen(false)}
                         formSubtitle='Edytuj stduio'
-                        confirmMessageTxt='ok'
-                        closeModal={() => {
-                        }}
-                        onSubmit={() => {
-                        }}
-                        error=''
-                        openConfirmMessage={false}
+                        confirmMessageTxt='Studio zostało zedytowane pomyślnie!'
+                        closeModal={closeModal}
+                        onSubmit={handleSubmit(onSubmit)}
+                        error={error}
+                        openConfirmMessage={open}
                         buttonTxt='Edytuj'
                     >
                         <InputField
