@@ -9,19 +9,18 @@
 
 .publisher__container {
     flex-direction: column;
-    margin: 10px;
 }
 
 .publisher__container h2 {
     font-size: 4rem;
-    margin: 10px;
+    margin: 10px 0 15px;
 }
 
-.publisher__container p {
+.publisher__container span p {
     font-size: 1.6rem;
-    background-color: #737373;
+    margin: 5px 0 20px;
+    background: #737373;
     padding: 10px;
-    margin: 20px;
 }
 
 .publisher__container h3 {
