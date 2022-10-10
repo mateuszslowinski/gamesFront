@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {getToken} from "../../../../hooks/getToken";
 import {useApi} from "../../../../hooks/useApi";
 import {api} from "../../../../utils/axios";
@@ -7,7 +7,7 @@ import {Spinner} from "../../../commons/Spinner/Spinner";
 import {EditStudioMain} from "./EditStudioMain";
 import {ErrorMessage} from "../../../commons/Messages/ErrorMessage/ErrorMessage";
 import {PublisherType, StudioType} from 'types';
-import {AddStudioFormType} from "../../../../types/add-forms.types";
+import {EditStudioFormType} from "../../../../types/edit-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
@@ -15,9 +15,10 @@ interface Props {
 
 export const EditStudio = ({closeModal}: Props) => {
     const {id} = useParams();
-    const [open, setOpen] = useState<boolean>(false);
     const [error, setError] = useState('');
     const token = getToken();
+    const navigate = useNavigate();
+
     const [publishers, loadingPublishers, getPublishersError] = useApi<PublisherType[]>({
         method: 'get',
         url: '/publisher'
@@ -28,7 +29,7 @@ export const EditStudio = ({closeModal}: Props) => {
     }, id);
 
 
-    const onSubmit = async (data: AddStudioFormType) => {
+    const onSubmit = async (data: EditStudioFormType) => {
         try {
             if (data.image) {
                 const newData = {
@@ -42,7 +43,7 @@ export const EditStudio = ({closeModal}: Props) => {
                     }
                 });
                 if (response.status === 200) {
-                    setOpen(true);
+                    navigate(0)
                 } else {
                     setError(response.data.error);
                 }
@@ -56,19 +57,14 @@ export const EditStudio = ({closeModal}: Props) => {
     if (errorStudio) return <ErrorMessage text={errorStudio}/>
     if (getPublishersError) return <ErrorMessage text={getPublishersError}/>
     return (
-        <>
-            {(!publishers || !studio || loadingStudio || loadingPublishers)
-                ? <Spinner/>
-                : <EditStudioMain
-                    onSubmit={onSubmit}
-                    openConfirmMessage={open}
-                    closeConfirmMessage={() => setOpen(false)}
-                    error={error}
-                    closeModal={closeModal}
-                    publishers={publishers}
-                    studio={studio}
-                />
-            }
-        </>
+        (!publishers || !studio || loadingStudio || loadingPublishers)
+            ? <Spinner/>
+            : <EditStudioMain
+                onSubmit={onSubmit}
+                error={error}
+                closeModal={closeModal}
+                publishers={publishers}
+                studio={studio}
+            />
     )
 }

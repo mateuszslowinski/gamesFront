@@ -10,8 +10,8 @@ import {PublisherType, StudioType} from 'types';
 interface Props {
     closeModal: (value: number) => void
     onSubmit: (data: EditStudioFormType) => void
-    closeConfirmMessage: () => void
-    openConfirmMessage: boolean
+    closeConfirmMessage?: () => void
+    openConfirmMessage?: boolean
     error: string
     publishers: PublisherType[]
     studio: StudioType
@@ -21,7 +21,6 @@ export const EditStudioMain = ({
                                    closeModal,
                                    onSubmit,
                                    closeConfirmMessage,
-                                   openConfirmMessage,
                                    error,
                                    publishers,
                                    studio
@@ -44,7 +43,6 @@ export const EditStudioMain = ({
             closeModal={closeModal}
             onSubmit={handleSubmit(onSubmit)}
             error={error}
-            openConfirmMessage={openConfirmMessage}
             buttonTxt='Edytuj'
         >
             <InputField

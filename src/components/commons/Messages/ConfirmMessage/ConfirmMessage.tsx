@@ -3,7 +3,7 @@ import './ConfirmMessage.css';
 
 interface Props {
     text: string
-    onClick:()=>void
+    onClick?:()=>void
 }
 
 export const ConfirmMessage = ({text,onClick}: Props) => (

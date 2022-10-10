@@ -10,24 +10,24 @@ interface Props {
     children: ReactNode
     onSubmit: (e: SyntheticEvent) => void
     formSubtitle: string
-    openConfirmMessage: boolean
-    closeConfirmMessage: () => void
+    openConfirmMessage?: boolean
+    closeConfirmMessage?: () => void
     confirmMessageTxt: string
     error: string
-    buttonTxt:string
+    buttonTxt: string
 }
 
 export const Form = ({
-                            closeModal,
-                            children,
-                            onSubmit,
-                            formSubtitle,
-                            openConfirmMessage,
-                            closeConfirmMessage,
-                            confirmMessageTxt,
-                            error,
+                         closeModal,
+                         children,
+                         onSubmit,
+                         formSubtitle,
+                         openConfirmMessage,
+                         closeConfirmMessage,
+                         confirmMessageTxt,
+                         error,
                          buttonTxt
-                        }: Props) => {
+                     }: Props) => {
 
     if (error) return <ErrorMessage text={error}/>
     return (
