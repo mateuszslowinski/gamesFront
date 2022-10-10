@@ -12,10 +12,6 @@ import './Login.css';
 
 export const Login = () => {
     const [error, setError] = useState('');
-    const [form, setForm] = useState<LoginFormTypes>({
-        email: '',
-        hash: ''
-    });
     const navigate = useNavigate();
 
     const {
@@ -24,16 +20,15 @@ export const Login = () => {
         formState: {
             errors: {email, hash},
         },
-    } = useForm<LoginFormTypes>();
+    } = useForm<LoginFormTypes>({
+        defaultValues:{
+            email:'',
+            hash:''
+        }
+    });
 
-    const updateForm = (key: string, value: string) => {
-        setForm(form => ({
-            ...form,
-            [key]: value,
-        }));
-    };
 
-    const onSubmit = async () => {
+    const onSubmit = async (form: LoginFormTypes) => {
         try {
             const response = await api.post('/auth/login', form)
             const data = response.data;
@@ -54,27 +49,21 @@ export const Login = () => {
             <form className='login__form' onSubmit={handleSubmit(onSubmit)}>
                 <InputField
                     type="email"
-                    value={form.email}
                     error={email}
-                    {...register('email', {
-                        required: 'Email jest wymagany',
+                    validation={register('email', {
+                        required: 'Email jest wymagane',
                         pattern: {
                             value: emailValidate,
                             message: "Podaj poprawy address email",
                         },
                     })}
-                    placeholder='Email...'
-                    onChange={(e) => updateForm('email', e.target.value)}
                 />
                 <InputField
                     type='password'
-                    value={form.hash}
                     error={hash}
                     validation={register('hash', {
                         required: 'Hasło jest wymagane',
                     })}
-                    placeholder="Hasło..."
-                    onChange={e => updateForm('hash', e.target.value)}
                 />
                 <Button text='Zaloguj'/>
             </form>
