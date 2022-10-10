@@ -104,7 +104,9 @@ export const EditStudioMain = ({
             <InputField
                 type='file'
                 error={image}
-                validation={register('image')}
+                validation={register('image', {
+                    required: 'Zdjęcie jest wymagana',
+                })}
             />
             <TextAreaField
                 error={description}
