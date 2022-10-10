@@ -7,6 +7,7 @@ import {StudioPage} from "./pages/Studio/Studio.page";
 import {Login} from "./components/Login/Login";
 import {ProtectedRoutes} from "./utils/ProtectedRoutes";
 import {AdminPage} from "./pages/AdminPage/AdminPage";
+import {GamePage} from "./pages/Game/Game.page";
 
 export const App = () => {
     return (
@@ -20,6 +21,7 @@ export const App = () => {
                 <Route path='/auth/login' element={<Login/>}/>
                 <Route path='/publisher/:id' element={<PublisherPage/>}/>
                 <Route path='/studio/:id' element={<StudioPage/>}/>
+                <Route path='/game/:id' element={<GamePage/>}/>
             </Routes>
         </>
     );
