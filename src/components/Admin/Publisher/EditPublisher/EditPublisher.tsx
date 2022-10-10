@@ -1,33 +1,29 @@
-import React from "react";
 import {useForm} from "react-hook-form";
 import {Form} from "../../Form";
 import {InputField} from "../../../commons/FormFields/InputField/InputField";
 import {TextAreaField} from "../../../commons/FormFields/TextArea/TextAreaField";
 import {EditPublisherFormType} from "../../../../types/edit-forms.types";
+import {PublisherType} from 'types';
 
-interface Props{
-    closeModal:(value: number) => void
+interface Props {
+    closeModal: (value: number) => void
+    publisher: PublisherType
 }
 
-export const EditPublisher =({closeModal}:Props)=>{
-
+export const EditPublisher = ({closeModal, publisher}: Props) => {
     const {
         register,
         formState: {
             errors: {name, description},
         },
-    } = useForm<EditPublisherFormType>({
-        defaultValues: {
-            name: '',
-            description: ""
-        }
-    });
+    } = useForm<EditPublisherFormType>();
 
-
-    return(
+    return (
         <Form
-            onSubmit={()=>{}}
-            closeModal={()=>{}}
+            onSubmit={() => {
+            }}
+            closeModal={() => {
+            }}
             formSubtitle='Edytuj nowego wydawce:'
             error=''
             buttonTxt='Edytuj'
@@ -38,6 +34,7 @@ export const EditPublisher =({closeModal}:Props)=>{
                 error={name}
                 validation={register('name', {
                     required: 'Nazwa wydawcy jest wymagana',
+                    value: publisher.name,
                     maxLength: {
                         value: 50,
                         message: 'Nazwa nie może przekraczać 50 znaków',
@@ -49,6 +46,7 @@ export const EditPublisher =({closeModal}:Props)=>{
                 error={description}
                 validation={register('description', {
                     required: 'Opis wydawcy jest wymagany',
+                    value: publisher.description,
                     maxLength: {
                         value: 1500,
                         message: 'Opis wydawcy nie może przekraczać 1500 znaków',
@@ -57,5 +55,6 @@ export const EditPublisher =({closeModal}:Props)=>{
                 placeholder='Opis wydawcy...'
             />
         </Form>
+
     )
 }
