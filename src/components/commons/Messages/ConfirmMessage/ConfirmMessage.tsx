@@ -2,7 +2,7 @@ import { Button } from '../../Button/Button';
 import './ConfirmMessage.css';
 
 interface Props {
-    text: string
+    text?: string
     onClick?:()=>void
 }
 

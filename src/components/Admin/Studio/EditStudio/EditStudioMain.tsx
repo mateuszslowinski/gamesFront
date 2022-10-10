@@ -39,7 +39,6 @@ export const EditStudioMain = ({
         <Form
             closeConfirmMessage={closeConfirmMessage}
             formSubtitle='Edytuj stduio'
-            confirmMessageTxt='Studio zostało zedytowane pomyślnie!'
             closeModal={closeModal}
             onSubmit={handleSubmit(onSubmit)}
             error={error}

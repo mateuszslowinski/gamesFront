@@ -12,7 +12,7 @@ interface Props {
     formSubtitle: string
     openConfirmMessage?: boolean
     closeConfirmMessage?: () => void
-    confirmMessageTxt: string
+    confirmMessageTxt?: string
     error: string
     buttonTxt: string
 }
