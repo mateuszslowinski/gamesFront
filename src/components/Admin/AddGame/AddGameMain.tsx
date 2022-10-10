@@ -5,14 +5,16 @@ import {InputField} from "../../commons/FormFields/InputField/InputField";
 import {SelectField} from "../../commons/FormFields/SelectField/SelectField";
 import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
 import {AddGameFormType} from "../../../types/add-forms.types";
+import {StudioType} from 'types';
+
 
 interface Props {
     closeModal: (value: number) => void
-    onSubmit: any
+    onSubmit: (data: AddGameFormType) => void
     closeConfirmMessage: () => void
     openConfirmMessage: boolean
     error: string
-    studios: any
+    studios: StudioType[]
 }
 
 export const AddGameMain = ({closeModal, onSubmit, closeConfirmMessage, openConfirmMessage, error, studios}: Props) => {

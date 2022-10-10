@@ -7,7 +7,7 @@ import {AddPublisherFormType} from "games/src/types/add-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
-    onSubmit: any
+    onSubmit: (data: AddPublisherFormType) => void
     closeConfirmMessage: () => void
     openConfirmMessage: boolean
     error: string

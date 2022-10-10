@@ -7,7 +7,7 @@ import {AddPlatformFormType} from "../../../types/add-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
-    onSubmit: any
+    onSubmit: (data: AddPlatformFormType) => void
     closeConfirmMessage: () => void
     openConfirmMessage: boolean
     error: string

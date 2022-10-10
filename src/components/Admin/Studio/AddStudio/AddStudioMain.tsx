@@ -6,14 +6,15 @@ import {NumberInput} from "../../../commons/FormFields/NumberInput/NumberInput";
 import {TextAreaField} from "../../../commons/FormFields/TextArea/TextAreaField";
 import {SelectField} from "../../../commons/FormFields/SelectField/SelectField";
 import {AddStudioFormType} from "../../../../types/add-forms.types";
+import {PublisherType} from 'types';
 
 interface Props {
     closeModal: (value: number) => void
-    onSubmit: any
+    onSubmit: (data: AddStudioFormType) => void
     closeConfirmMessage: () => void
     openConfirmMessage: boolean
     error: string
-    publishers: any
+    publishers: PublisherType[]
 }
 
 export const AddStudioMain = ({
