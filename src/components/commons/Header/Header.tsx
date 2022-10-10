@@ -1,11 +1,11 @@
 import {NavLink} from "react-router-dom"
 import {useApi} from "../../../hooks/useApi";
+import {getToken} from "../../../hooks/getToken";
 import {Spinner} from "../Spinner/Spinner";
 import {ErrorMessage} from "../Messages/ErrorMessage/ErrorMessage";
 import {PublisherType} from 'types';
 
 import './header.css';
-import {getToken} from "../../../hooks/getToken";
 
 export const Header = () => {
     const token = getToken();
