@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useForm} from "react-hook-form";
-import {AddForm} from "../AddForm";
+import {Form} from "../Form";
 import {InputField} from "../../commons/FormFields/InputField/InputField";
 import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
 import {AddPublisherFormType} from "games/src/types/addd-forms.types";
@@ -33,7 +33,7 @@ export const AddPublisherMain = ({closeModal, onSubmit, closeConfirmMessage, ope
     }, [openConfirmMessage]);
 
     return (
-        <AddForm
+        <Form
             onSubmit={handleSubmit(onSubmit)}
             closeModal={closeModal}
             formSubtitle='Dodaj nowego wydawce:'
@@ -41,6 +41,7 @@ export const AddPublisherMain = ({closeModal, onSubmit, closeConfirmMessage, ope
             closeConfirmMessage={closeConfirmMessage}
             openConfirmMessage={openConfirmMessage}
             error={error}
+            buttonTxt='Dodaj'
         >
             <InputField
                 type='text'
@@ -65,6 +66,6 @@ export const AddPublisherMain = ({closeModal, onSubmit, closeConfirmMessage, ope
                 })}
                 placeholder='Opis wydawcy...'
             />
-        </AddForm>
+        </Form>
     )
 }

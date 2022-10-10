@@ -1,4 +1,4 @@
-.add__form__container {
+.form__container {
     position: absolute;
     top: 0;
     left: 0;
@@ -10,6 +10,6 @@
     background-color: #292A2B;
 }
 
-.add__form__container button {
+.form__container button {
     width: 20%;
 }

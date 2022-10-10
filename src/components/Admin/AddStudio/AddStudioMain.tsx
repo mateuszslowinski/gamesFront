@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {useForm} from "react-hook-form";
-import {AddForm} from "../AddForm";
+import {Form} from "../Form";
 import {InputField} from "../../commons/FormFields/InputField/InputField";
 import {NumberInput} from "../../commons/FormFields/NumberInput/NumberInput";
 import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
@@ -49,7 +49,7 @@ export const AddStudioMain = ({
     }, [openConfirmMessage]);
 
     return (
-        <AddForm
+        <Form
             closeModal={closeModal}
             onSubmit={handleSubmit(onSubmit)}
             formSubtitle='Dodaj nowe studio'
@@ -57,6 +57,7 @@ export const AddStudioMain = ({
             openConfirmMessage={openConfirmMessage}
             confirmMessageTxt='Studio zostało dodane!'
             error={error}
+            buttonTxt='Dodaj'
         >
             <InputField
                 type='text'
@@ -125,6 +126,6 @@ export const AddStudioMain = ({
                 })}
                 placeholder='Opis wydawcy...'
             />
-        </AddForm>
+        </Form>
     )
 }

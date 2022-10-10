@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {useForm} from "react-hook-form";
-import {AddForm} from "../AddForm";
+import {Form} from "../Form";
 import {InputField} from "../../commons/FormFields/InputField/InputField";
 import {SelectField} from "../../commons/FormFields/SelectField/SelectField";
 import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
@@ -38,7 +38,7 @@ export const AddGameMain = ({closeModal, onSubmit, closeConfirmMessage, openConf
     }, [openConfirmMessage]);
 
     return (
-        <AddForm
+        <Form
             closeModal={closeModal}
             onSubmit={handleSubmit(onSubmit)}
             formSubtitle='Dodaj nową grę'
@@ -46,6 +46,7 @@ export const AddGameMain = ({closeModal, onSubmit, closeConfirmMessage, openConf
             closeConfirmMessage={closeConfirmMessage}
             error={error}
             openConfirmMessage={openConfirmMessage}
+            buttonTxt='Dodaj'
         >
             <InputField
                 type='text'
@@ -89,6 +90,6 @@ export const AddGameMain = ({closeModal, onSubmit, closeConfirmMessage, openConf
                 })}
                 placeholder='Opis gry...'
             />
-        </AddForm>
+        </Form>
     )
 }

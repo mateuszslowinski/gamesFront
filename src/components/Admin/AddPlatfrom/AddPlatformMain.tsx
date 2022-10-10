@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useForm} from "react-hook-form";
-import {AddForm} from "../AddForm";
+import {Form} from "../Form";
 import {InputField} from "../../commons/FormFields/InputField/InputField";
 import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
 import {AddPlatformFormType} from "../../../types/addd-forms.types";
@@ -33,7 +33,7 @@ export const AddPlatformMain = ({closeModal, onSubmit, closeConfirmMessage, open
     }, [openConfirmMessage]);
 
     return (
-        <AddForm
+        <Form
             onSubmit={handleSubmit(onSubmit)}
             closeModal={closeModal}
             formSubtitle='Dodaj nowa platformę:'
@@ -41,6 +41,7 @@ export const AddPlatformMain = ({closeModal, onSubmit, closeConfirmMessage, open
             closeConfirmMessage={closeConfirmMessage}
             openConfirmMessage={openConfirmMessage}
             error={error}
+            buttonTxt='Dodaj'
         >
             <InputField
                 type='text'
@@ -66,6 +67,6 @@ export const AddPlatformMain = ({closeModal, onSubmit, closeConfirmMessage, open
                 })}
                 placeholder='Opis platformy...'
             />
-        </AddForm>
+        </Form>
     )
 }

@@ -3,7 +3,7 @@ import {Button} from "../commons/Button/Button";
 import {ConfirmMessage} from "../commons/Messages/ConfirmMessage/ConfirmMessage";
 import {ErrorMessage} from "../commons/Messages/ErrorMessage/ErrorMessage";
 
-import './AddForm.css';
+import './Form.css';
 
 interface Props {
     closeModal: (value: number) => void
@@ -14,28 +14,30 @@ interface Props {
     closeConfirmMessage: () => void
     confirmMessageTxt: string
     error: string
+    buttonTxt: string
 }
 
-export const AddForm = ({
-                            closeModal,
-                            children,
-                            onSubmit,
-                            formSubtitle,
-                            openConfirmMessage,
-                            closeConfirmMessage,
-                            confirmMessageTxt,
-                            error
-                        }: Props) => {
+export const Form = ({
+                         closeModal,
+                         children,
+                         onSubmit,
+                         formSubtitle,
+                         openConfirmMessage,
+                         closeConfirmMessage,
+                         confirmMessageTxt,
+                         error,
+                         buttonTxt
+                     }: Props) => {
 
     if (error) return <ErrorMessage text={error}/>
     return (
         <>
             {openConfirmMessage && <ConfirmMessage text={confirmMessageTxt} onClick={closeConfirmMessage}/>}
-            <form className="add__form__container" onSubmit={onSubmit}>
+            <form className="form__container" onSubmit={onSubmit}>
                 <Button text='Wróc do panelu' onClick={() => closeModal(0)}/>
                 <h3>{formSubtitle}</h3>
                 {children}
-                <Button text='Dodaj'/>
+                <Button text={buttonTxt}/>
             </form>
         </>
     )
