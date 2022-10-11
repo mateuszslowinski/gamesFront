@@ -1,12 +1,12 @@
 import {useState} from "react";
-import {api} from "../../../utils/axios";
-import {getToken} from "../../../hooks/getToken";
-import {useApi} from "../../../hooks/useApi";
+import {api} from "../../../../utils/axios";
+import {getToken} from "../../../../hooks/getToken";
+import {useApi} from "../../../../hooks/useApi";
 import {AddGameMain} from "./AddGameMain";
-import {Spinner} from "../../commons/Spinner/Spinner";
-import {ErrorMessage} from "../../commons/Messages/ErrorMessage/ErrorMessage";
+import {Spinner} from "../../../commons/Spinner/Spinner";
+import {ErrorMessage} from "../../../commons/Messages/ErrorMessage/ErrorMessage";
 import {StudioType} from 'types';
-import {AddGameFormType} from "../../../types/addd-forms.types";
+import {AddGameFormType} from "../../../../types/add-forms.types";
 
 interface Props {
     closeModal: (value: number) => void
@@ -47,18 +47,15 @@ export const AddGame = ({closeModal}: Props) => {
 
     if (getStudioError) return <ErrorMessage text={getStudioError}/>
     return (
-        <>
-            {(loading || !studios)
-                ? <Spinner/>
-                : <AddGameMain
-                    closeModal={closeModal}
-                    onSubmit={onSubmit}
-                    closeConfirmMessage={() => setOpen(false)}
-                    openConfirmMessage={open}
-                    error={error}
-                    studios={studios}
-                />
-            }
-        </>
+        (loading || !studios)
+            ? <Spinner/>
+            : <AddGameMain
+                closeModal={closeModal}
+                onSubmit={onSubmit}
+                closeConfirmMessage={() => setOpen(false)}
+                openConfirmMessage={open}
+                error={error}
+                studios={studios}
+            />
     )
 }

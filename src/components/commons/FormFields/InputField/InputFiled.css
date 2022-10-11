@@ -10,3 +10,11 @@ input, .input__error__message {
     font-size: 1.4rem;
     border-radius: 5px;
 }
+
+.input__field p {
+    font-size: 1.2rem;
+    margin: 5px 5px 0;
+    padding: 0;
+    text-align: left;
+    background: transparent;
+}

@@ -8,10 +8,12 @@ interface Props {
     placeholder?: string
     error?: any
     validation?: UseFormRegisterReturn
+    text?:string
 }
 
-export const InputField = ({type, value, placeholder, error, validation}: Props) => (
-    <>
+export const InputField = ({type, value, placeholder, error, validation,text}: Props) => (
+    <label className='input__field'>
+        <p>{text}</p>
         <input
             type={type}
             value={value}
@@ -19,6 +21,6 @@ export const InputField = ({type, value, placeholder, error, validation}: Props)
             placeholder={placeholder}
         />
         {error && <div className='input__error__message'>{error.message}</div>}
-    </>
+    </label>
 
 )

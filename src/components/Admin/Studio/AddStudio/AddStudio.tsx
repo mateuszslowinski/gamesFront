@@ -1,11 +1,11 @@
 import {useState} from "react";
-import {api} from "../../../utils/axios";
-import {getToken} from "../../../hooks/getToken";
-import {useApi} from "../../../hooks/useApi";
+import {api} from "../../../../utils/axios";
+import {getToken} from "../../../../hooks/getToken";
+import {useApi} from "../../../../hooks/useApi";
 import {AddStudioMain} from "./AddStudioMain";
-import {Spinner} from "../../commons/Spinner/Spinner";
-import {ErrorMessage} from "../../commons/Messages/ErrorMessage/ErrorMessage";
-import {AddStudioFormType} from "../../../types/addd-forms.types";
+import {Spinner} from "../../../commons/Spinner/Spinner";
+import {ErrorMessage} from "../../../commons/Messages/ErrorMessage/ErrorMessage";
+import {AddStudioFormType} from "../../../../types/add-forms.types";
 import {PublisherType} from 'types';
 
 interface Props {

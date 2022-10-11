@@ -2,8 +2,8 @@ import { Button } from '../../Button/Button';
 import './ConfirmMessage.css';
 
 interface Props {
-    text: string
-    onClick:()=>void
+    text?: string
+    onClick?:()=>void
 }
 
 export const ConfirmMessage = ({text,onClick}: Props) => (
