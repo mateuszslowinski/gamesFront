@@ -1,12 +1,12 @@
 import {useState} from "react";
-import {api} from "../../../utils/axios";
-import {getToken} from "../../../hooks/getToken";
-import {useApi} from "../../../hooks/useApi";
+import {api} from "../../../../utils/axios";
+import {getToken} from "../../../../hooks/getToken";
+import {useApi} from "../../../../hooks/useApi";
 import {AddGameMain} from "./AddGameMain";
-import {Spinner} from "../../commons/Spinner/Spinner";
-import {ErrorMessage} from "../../commons/Messages/ErrorMessage/ErrorMessage";
+import {Spinner} from "../../../commons/Spinner/Spinner";
+import {ErrorMessage} from "../../../commons/Messages/ErrorMessage/ErrorMessage";
 import {StudioType} from 'types';
-import {AddGameFormType} from "../../../types/add-forms.types";
+import {AddGameFormType} from "../../../../types/add-forms.types";
 
 interface Props {
     closeModal: (value: number) => void

@@ -1,10 +1,10 @@
 import {useEffect} from "react";
 import {useForm} from "react-hook-form";
-import {Form} from "../Form";
-import {InputField} from "../../commons/FormFields/InputField/InputField";
-import {SelectField} from "../../commons/FormFields/SelectField/SelectField";
-import {TextAreaField} from "../../commons/FormFields/TextArea/TextAreaField";
-import {AddGameFormType} from "../../../types/add-forms.types";
+import {Form} from "../../Form";
+import {InputField} from "../../../commons/FormFields/InputField/InputField";
+import {SelectField} from "../../../commons/FormFields/SelectField/SelectField";
+import {TextAreaField} from "../../../commons/FormFields/TextArea/TextAreaField";
+import {AddGameFormType} from "../../../../types/add-forms.types";
 import {StudioType} from 'types';
 
 

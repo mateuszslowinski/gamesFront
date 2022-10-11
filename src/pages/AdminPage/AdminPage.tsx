@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {AddGame} from "../../components/Admin/AddGame/AddGame";
+import {AddGame} from "../../components/Admin/Game/AddGame/AddGame";
 import {AddPublisher} from "../../components/Admin/Publisher/AddPublisher/AddPublisher";
 import {AddStudio} from "../../components/Admin/Studio/AddStudio/AddStudio";
 import {AddPlatform} from "../../components/Admin/AddPlatfrom/AddPlatform";
