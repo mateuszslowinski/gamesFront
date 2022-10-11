@@ -28,7 +28,12 @@ export const Game = ({game}: Props) => {
     if (!studio || errorStudio) return <ErrorMessage text={errorStudio}/>
     return (
         <div className='game__page__container'>
-            {openEditForm === 1 && <EditGame closeModal={() => setOpenEditForm(0)}  game={game}/>}
+            {openEditForm === 1
+                && <EditGame
+                    closeModal={() => setOpenEditForm(0)}
+                    game={game}
+                    token={token}
+                />}
             {loadingStudio
                 ? <Spinner/>
                 : (
@@ -49,7 +54,7 @@ export const Game = ({game}: Props) => {
                         <div className="game__details">
                             <span>Deweloper:
                              <p className='publisher__navigate'
-                                 onClick={()=> navigate(`../studio/${studio.id}`)}
+                                onClick={() => navigate(`../studio/${studio.id}`)}
                              >
                                  {studio.name}
                              </p>
