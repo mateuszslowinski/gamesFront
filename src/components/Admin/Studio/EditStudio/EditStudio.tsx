@@ -49,7 +49,6 @@ export const EditStudio = ({closeModal,studio}: Props) => {
         }
     }
 
-
     if (getPublishersError) return <ErrorMessage text={getPublishersError}/>
     return (
         (!publishers || loadingPublishers)
