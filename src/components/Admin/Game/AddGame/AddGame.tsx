@@ -47,18 +47,15 @@ export const AddGame = ({closeModal}: Props) => {
 
     if (getStudioError) return <ErrorMessage text={getStudioError}/>
     return (
-        <>
-            {(loading || !studios)
-                ? <Spinner/>
-                : <AddGameMain
-                    closeModal={closeModal}
-                    onSubmit={onSubmit}
-                    closeConfirmMessage={() => setOpen(false)}
-                    openConfirmMessage={open}
-                    error={error}
-                    studios={studios}
-                />
-            }
-        </>
+        (loading || !studios)
+            ? <Spinner/>
+            : <AddGameMain
+                closeModal={closeModal}
+                onSubmit={onSubmit}
+                closeConfirmMessage={() => setOpen(false)}
+                openConfirmMessage={open}
+                error={error}
+                studios={studios}
+            />
     )
 }
