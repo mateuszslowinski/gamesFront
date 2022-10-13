@@ -57,6 +57,7 @@ export const Login = () => {
                             message: "Podaj poprawy address email",
                         },
                     })}
+                    text='email'
                 />
                 <InputField
                     type='password'
@@ -64,6 +65,7 @@ export const Login = () => {
                     validation={register('hash', {
                         required: 'Hasło jest wymagane',
                     })}
+                    text='Hasło'
                 />
                 <Button text='Zaloguj'/>
             </form>
