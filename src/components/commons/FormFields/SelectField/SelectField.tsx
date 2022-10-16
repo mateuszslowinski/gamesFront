@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import {UseFormRegisterReturn} from "react-hook-form";
 
 import './SelectField.css';
@@ -6,15 +6,17 @@ import './SelectField.css';
 interface Props {
     validation: UseFormRegisterReturn
     options: { id: string; name: string }[]
-    error:any
-    text:string
+    error: any
+    text: string
+    onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const SelectField = ({validation, options,error,text}: Props) => (
+export const SelectField = ({validation, options, error, text, onChange}: Props) => (
     <div className='select__field__container'>
         <select
             {...validation}
-           >
+            onChange={onChange}
+        >
             <option value="">{text}</option>
             {options.map(option => (
                 <option

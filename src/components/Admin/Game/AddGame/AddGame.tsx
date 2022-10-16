@@ -16,9 +16,13 @@ export const AddGame = ({closeModal}: Props) => {
     const [open, setOpen] = useState<boolean>(false);
     const [error, setError] = useState('');
     const token = getToken()
-    const [studios, loading, getStudioError] = useApi<StudioType[]>({
+    const [studios, loadingStudios, getStudioError] = useApi<StudioType[]>({
         method: 'get',
         url: '/studio'
+    });
+    const [platforms, loadingPlatforms, getPlatformsError] = useApi<StudioType[]>({
+        method: 'get',
+        url: '/platform'
     });
 
     const onSubmit = async (data: AddGameFormType) => {
@@ -46,8 +50,9 @@ export const AddGame = ({closeModal}: Props) => {
     }
 
     if (getStudioError) return <ErrorMessage text={getStudioError}/>
+    if (getPlatformsError) return <ErrorMessage text={getPlatformsError}/>
     return (
-        (loading || !studios)
+        (loadingStudios || !studios || loadingPlatforms || !platforms)
             ? <Spinner/>
             : <AddGameMain
                 closeModal={closeModal}
@@ -56,6 +61,7 @@ export const AddGame = ({closeModal}: Props) => {
                 openConfirmMessage={open}
                 error={error}
                 studios={studios}
+                platforms={platforms}
             />
     )
 }
