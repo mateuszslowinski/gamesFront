@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import {UseFormRegisterReturn} from "react-hook-form";
 import './InputFiled.css';
 
@@ -9,9 +9,10 @@ interface Props {
     error?: any
     validation?: UseFormRegisterReturn
     text?:string
+    onChange?:(e:ChangeEvent<HTMLInputElement>)=>void
 }
 
-export const InputField = ({type, value, placeholder, error, validation,text}: Props) => (
+export const InputField = ({type, value, placeholder, error, validation,text,onChange}: Props) => (
     <label className='input__field'>
         <p>{text}</p>
         <input
@@ -19,6 +20,7 @@ export const InputField = ({type, value, placeholder, error, validation,text}: P
             value={value}
             {...validation}
             placeholder={placeholder}
+            onChange={onChange}
         />
         {error && <div className='input__error__message'>{error.message}</div>}
     </label>
