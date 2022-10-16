@@ -5,7 +5,7 @@ import {InputField} from "../../../commons/FormFields/InputField/InputField";
 import {SelectField} from "../../../commons/FormFields/SelectField/SelectField";
 import {TextAreaField} from "../../../commons/FormFields/TextArea/TextAreaField";
 import {AddGameFormType} from "../../../../types/add-forms.types";
-import {StudioType} from 'types';
+import {StudioType,PlatformType} from 'types';
 
 
 interface Props {
@@ -15,9 +15,11 @@ interface Props {
     openConfirmMessage: boolean
     error: string
     studios: StudioType[]
+    platforms:PlatformType[]
+
 }
 
-export const AddGameMain = ({closeModal, onSubmit, closeConfirmMessage, openConfirmMessage, error, studios}: Props) => {
+export const AddGameMain = ({closeModal, onSubmit, closeConfirmMessage, openConfirmMessage, error, studios,platforms}: Props) => {
     const {
         handleSubmit,
         register,
@@ -32,6 +34,7 @@ export const AddGameMain = ({closeModal, onSubmit, closeConfirmMessage, openConf
             releaseDate: null,
             description: "",
             image: null,
+            platformId:[]
         }
     });
 
@@ -81,6 +84,16 @@ export const AddGameMain = ({closeModal, onSubmit, closeConfirmMessage, openConf
                 error={image}
                 validation={register('image')}
             />
+            {platforms.map(plat => (
+                <label key={plat.id}>
+                    {plat.name}
+                    <input
+                        {...register('platformId')}
+                        type="checkbox"
+                        value={plat.id}
+                    />
+                </label>
+            ))}
             <TextAreaField
                 error={description}
                 validation={register('description', {
