@@ -7,13 +7,13 @@ import './Form.css';
 
 interface Props {
     closeModal: (value: number) => void
-    children: ReactNode
-    onSubmit: (e: SyntheticEvent) => void
-    formSubtitle: string
+    children?: ReactNode
+    onSubmit?: (e: SyntheticEvent) => void
+    formSubtitle?: string
     openConfirmMessage?: boolean
     closeConfirmMessage?: () => void
     confirmMessageTxt?: string
-    error: string
+    error?: string
     buttonTxt: string
 }
 
