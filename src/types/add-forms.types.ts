@@ -17,5 +17,6 @@ export interface AddGameFormType extends AddPublisherFormType {
     developerId: string
     releaseDate: Date | null
     image: FileList | null
+    platformId: string[]
 }
 
