@@ -4,9 +4,9 @@ import {UseFormRegisterReturn} from "react-hook-form";
 import './SelectField.css';
 
 interface Props {
-    validation: UseFormRegisterReturn
+    validation?: UseFormRegisterReturn
     options: { id: string; name: string }[]
-    error: any
+    error?: any
     text: string
     onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
 }
