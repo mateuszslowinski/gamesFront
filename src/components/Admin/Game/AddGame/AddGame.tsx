@@ -5,7 +5,7 @@ import {useApi} from "../../../../hooks/useApi";
 import {AddGameMain} from "./AddGameMain";
 import {Spinner} from "../../../commons/Spinner/Spinner";
 import {ErrorMessage} from "../../../commons/Messages/ErrorMessage/ErrorMessage";
-import {StudioType} from 'types';
+import {StudioType,PlatformType} from 'types';
 import {AddGameFormType} from "../../../../types/add-forms.types";
 
 interface Props {
@@ -20,7 +20,7 @@ export const AddGame = ({closeModal}: Props) => {
         method: 'get',
         url: '/studio'
     });
-    const [platforms, loadingPlatforms, getPlatformsError] = useApi<StudioType[]>({
+    const [platforms, loadingPlatforms, getPlatformsError] = useApi<PlatformType[]>({
         method: 'get',
         url: '/platform'
     });

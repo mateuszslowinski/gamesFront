@@ -25,6 +25,7 @@ export const Header = () => {
                         {publishers.map(publisher => (
                             <NavLink key={publisher.id} to={`/publisher/${publisher.id}`}>{publisher.name}</NavLink>
                         ))}
+                        <NavLink to='/platform'>Platformy</NavLink>
                         {token && <NavLink to='/admin'>Admin</NavLink>}
                     </ul>
                 </div>}

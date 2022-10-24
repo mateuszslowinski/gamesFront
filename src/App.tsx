@@ -8,6 +8,7 @@ import {Login} from "./components/Login/Login";
 import {ProtectedRoutes} from "./utils/ProtectedRoutes";
 import {AdminPage} from "./pages/AdminPage/AdminPage";
 import {GamePage} from "./pages/Game/Game.page";
+import {PlatformPage} from "./pages/Platform/Platform.page";
 
 export const App = () => {
     return (
@@ -22,6 +23,7 @@ export const App = () => {
                 <Route path='/publisher/:id' element={<PublisherPage/>}/>
                 <Route path='/studio/:id' element={<StudioPage/>}/>
                 <Route path='/game/:id' element={<GamePage/>}/>
+                <Route path='/platform' element={<PlatformPage/>}/>
             </Routes>
         </>
     );
