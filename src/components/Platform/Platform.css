@@ -1,3 +1,41 @@
-.platforms__container{
+.platforms__container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
 
+.platform__details__container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #292A2B;
+}
+
+.years__container {
+    margin: 5px;
+}
+
+.years__container div {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.platforms__container select {
+    background-color: transparent;
+    color: #FCFCFC;
+}
+
+.platforms__container option {
+    background-color: #292A2B;
+}
+
+.years__container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.years__container h5 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
 }

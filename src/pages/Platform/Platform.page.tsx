@@ -12,8 +12,8 @@ export const PlatformPage = () => {
 
     if (getPlatformsError) return <ErrorMessage text={getPlatformsError}/>
     return (
-        <>
+        <div className='page__container'>
             {platformsLoading || !platforms ? <Spinner/> : <Platform platforms={platforms}/>}
-        </>
+        </div>
     )
 }

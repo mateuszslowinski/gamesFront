@@ -25,41 +25,51 @@ export const Platform = ({platforms}: Props) => {
         url: `/platform/${secondPlatform}/games`
     }, [secondPlatform]);
 
-    const errorsArray = [ firstPlatformGamesError,  secondPlatformGamesError];
-    const loadingsArray = [ firstPlatformGamesLoading, secondPlatformGamesLoading];
+    const errorsArray = [firstPlatformGamesError, secondPlatformGamesError];
+    const loadingsArray = [firstPlatformGamesLoading, secondPlatformGamesLoading];
 
 
     errorsArray.map(error => (
         <ErrorMessage text={error}/>
     ))
     return (
-        <div className='platforms__container'>
+        <>
             {loadingsArray.includes(true) ? <Spinner/> : (
-                <>
-                    <SelectField
-                        options={platforms}
-                        text='Wybierz pierwsza platformę'
-                        onChange={e => setFirstPlatform(e.target.value)}/>
+                <div className='platforms__container'>
+                    <div className='platform__details__container'>
+                        <SelectField
+                            options={platforms}
+                            text='Wybierz pierwsza platformę'
+                            onChange={e => setFirstPlatform(e.target.value)}/>
 
-                    {yearsPlatformData.map(year => (
-                        <>
-                            <h3>{year}</h3>
-                            {firstPlatformGames?.filter(game => game.releaseDate.toString().slice(0, 4) === year).map(game => (
-                                <h5>{game.name}</h5>
-                            ))}
-                        </>
-                    ))}
-
-                    {/*<SelectField*/}
-                    {/*    options={platforms}*/}
-                    {/*    text='Wybierz druga platformę'*/}
-                    {/*    onChange={e => setSecondPlatform(e.target.value)}/>*/}
-                    {/*<h3>{getSecondPlatform?.name}</h3>*/}
-                    {/*{secondPlatformGames?.map(game => (*/}
-                    {/*    game.name*/}
-                    {/*))}*/}
-                </>
+                        {yearsPlatformData.map(year => (
+                            <div className='years__container'>
+                                <h3>{year}</h3>
+                                {firstPlatformGames?.filter(game => game.releaseDate.toString().slice(0, 4) === year).map(game => (
+                                    <div>
+                                        <h5>{game.name}</h5>
+                                        <h5>{game.releaseDate.toString().slice(0,10)}</h5>
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                    <div className='platform__details__container'>
+                        <SelectField
+                            options={platforms}
+                            text='Wybierz druga platformę'
+                            onChange={e => setSecondPlatform(e.target.value)}/>
+                        {yearsPlatformData.map(year => (
+                            <div className='years__container'>
+                                <h3>{year}</h3>
+                                {secondPlatformGames?.filter(game => game.releaseDate.toString().slice(0, 4) === year).map(game => (
+                                    <h5>{game.name}</h5>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                </div>
             )}
-        </div>
+        </>
     )
 }
