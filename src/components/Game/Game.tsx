@@ -22,7 +22,7 @@ export const Game = ({game}: Props) => {
     const {id, name, description, releaseDate, developerId} = game;
     const [studio, loadingStudio, errorStudio] = useApi<StudioType>({
         method: 'get',
-        url: `/studio/${developerId}`
+        url: `/studio/id/${developerId}`
     }, id)
 
     if (!studio || errorStudio) return <ErrorMessage text={errorStudio}/>
