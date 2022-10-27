@@ -55,7 +55,7 @@ export const Studio = ({studio, games}: Props) => {
                 <tbody>
                 {games.map(game => (
                     <tr key={game.id}>
-                        <th><NavLink to={`../game/${game.id}`}>{game.name}</NavLink></th>
+                        <th><NavLink to={`../game/${game.name}`}>{game.name}</NavLink></th>
                         <th>{game.releaseDate.toString().slice(0, 10)}</th>
                     </tr>
                 ))}
