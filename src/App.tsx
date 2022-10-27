@@ -20,9 +20,9 @@ export const App = () => {
                 </Route>
                 <Route path='/' element={<HomePage/>}/>
                 <Route path='/auth/login' element={<Login/>}/>
-                <Route path='/publisher/:id' element={<PublisherPage/>}/>
-                <Route path='/studio/:id' element={<StudioPage/>}/>
-                <Route path='/game/:id' element={<GamePage/>}/>
+                <Route path='/publisher/:name' element={<PublisherPage/>}/>
+                <Route path='/studio/:name' element={<StudioPage/>}/>
+                <Route path='/game/:name' element={<GamePage/>}/>
                 <Route path='/platform' element={<PlatformPage/>}/>
             </Routes>
         </>
