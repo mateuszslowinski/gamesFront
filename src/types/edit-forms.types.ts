@@ -1,5 +1,5 @@
 import {AddGameFormType, AddPublisherFormType, AddStudioFormType} from "./add-forms.types";
 
-export type EditStudioFormType = AddStudioFormType;
-export type EditPublisherFormType = AddPublisherFormType;
-export type EditGameFormType = AddGameFormType;
+export type EditStudioFormType = Omit<AddStudioFormType, 'name'>;
+export type EditPublisherFormType = Omit<AddPublisherFormType, 'name'>;
+export type EditGameFormType = Omit<AddGameFormType, 'name'>;
