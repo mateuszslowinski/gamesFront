@@ -30,7 +30,7 @@ export const EditGame = ({closeModal, game, token}: Props) => {
                     ...data,
                     image: data.image[0]
                 }
-                const response = await api.patch(`/game/${game.id}`, newData, {
+                const response = await api.patch(`/game/${game.name}`, newData, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'multipart/form-data'

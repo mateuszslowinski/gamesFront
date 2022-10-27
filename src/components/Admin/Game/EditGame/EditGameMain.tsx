@@ -19,7 +19,7 @@ export const EditGameMain = ({closeModal, onSubmit, studios, game,error}: Props)
         handleSubmit,
         register,
         formState: {
-            errors: {name, developerId, releaseDate, description, image},
+            errors: { developerId, releaseDate, description, image},
         },
     } = useForm<EditGameFormType>();
 
@@ -32,19 +32,7 @@ export const EditGameMain = ({closeModal, onSubmit, studios, game,error}: Props)
             error={error}
             buttonTxt='Edytuj'
         >
-            <InputField
-                type='text'
-                placeholder='Nazwa gry...'
-                error={name}
-                validation={register('name', {
-                    required: 'Nazwa gry jest wymagana',
-                    value: game.name,
-                    maxLength: {
-                        value: 100,
-                        message: 'Nazwa gry nie może przekraczać 100 znaków',
-                    },
-                })}
-            />
+            <h2>{game.name}</h2>
             <InputField
                 type='date'
                 error={releaseDate}
