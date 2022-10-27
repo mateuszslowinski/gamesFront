@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const EditStudio = ({closeModal,studio}: Props) => {
-    const {id} = useParams();
+    const {name} = useParams();
     const [error, setError] = useState('');
     const token = getToken();
     const navigate = useNavigate();
@@ -32,7 +32,7 @@ export const EditStudio = ({closeModal,studio}: Props) => {
                     ...data,
                     image: data.image[0]
                 }
-                const response = await api.patch(`/studio/${id}`, newData, {
+                const response = await api.patch(`/studio/${name}`, newData, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'multipart/form-data'
