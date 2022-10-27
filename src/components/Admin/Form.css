@@ -20,8 +20,14 @@
     background-color: #737373;
     padding: 20px;
 }
+
 .form__container p {
     font-size: 1.2rem !important;
     margin: 5px 5px 0 !important;
     text-align: left !important;
+}
+
+h2 {
+    font-size: 4rem;
+    margin: 10px 0 15px;
 }

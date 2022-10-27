@@ -7,17 +7,17 @@ import {Spinner} from "../../components/commons/Spinner/Spinner";
 
 
 export const PublisherPage = () => {
-    const {id} = useParams();
+    const {name} = useParams();
 
     const [publisher, loadingPublisher, errorPublisher] = useApi<PublisherType>({
         method: 'get',
-        url: `/publisher/${id}`
-    }, id);
+        url: `/publisher/${name}`
+    }, name);
 
     const [studios, loadingStudios, errorStudios] = useApi<StudioType[]>({
         method: 'get',
-        url: `/publisher/${id}/studios`
-    }, id);
+        url: `/publisher/${name}/studios`
+    },name);
 
     if (errorStudios) return <ErrorMessage text={errorStudios}/>
     if (errorPublisher ) return <ErrorMessage text={errorPublisher}/>

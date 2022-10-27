@@ -17,8 +17,8 @@ export const Publisher = ({studios, publisher}: Props) => {
     const [openEditForm, setOpenEditForm] = useState(0);
     const token = getToken();
 
-    const handleGoToStudioSite = (id: string) => {
-        navigate(`/studio/${id}`)
+    const handleGoToStudioSite = (name: string) => {
+        navigate(`/studio/${(name).toLowerCase()}`)
     };
     const {name, description} = publisher
     return (
@@ -39,7 +39,7 @@ export const Publisher = ({studios, publisher}: Props) => {
             <h3>Studia należące do {name}:</h3>
             <div className="studios__container">
                 {studios.map(studio => (
-                    <div className="studio" key={studio.id} onClick={() => handleGoToStudioSite(studio.id)}>
+                    <div className="studio" key={studio.id} onClick={() => handleGoToStudioSite(studio.name)}>
                         <p>{studio.name}</p>
                     </div>
                 ))}

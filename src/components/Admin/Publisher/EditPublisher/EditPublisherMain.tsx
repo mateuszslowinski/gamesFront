@@ -1,5 +1,4 @@
 import {Form} from "../../Form";
-import {InputField} from "../../../commons/FormFields/InputField/InputField";
 import {TextAreaField} from "../../../commons/FormFields/TextArea/TextAreaField";
 import {useForm} from "react-hook-form";
 import {EditPublisherFormType} from "../../../../types/edit-forms.types";
@@ -17,7 +16,7 @@ export const EditPublisherMain = ({closeModal,onSubmit,error,publisher}: Props) 
         handleSubmit,
         register,
         formState: {
-            errors: {name, description},
+            errors: { description},
         },
     } = useForm<EditPublisherFormType>();
 
@@ -26,24 +25,11 @@ export const EditPublisherMain = ({closeModal,onSubmit,error,publisher}: Props) 
         <Form
             onSubmit={handleSubmit(onSubmit)}
             closeModal={closeModal}
-            formSubtitle='Edytuj nowego wydawce:'
+            formSubtitle='Edytuj tego wydawce:'
             error={error}
             buttonTxt='Edytuj'
         >
-            <InputField
-                type='text'
-                placeholder='Nazwa wydawcy...'
-                error={name}
-                validation={register('name', {
-                    required: 'Nazwa wydawcy jest wymagana',
-                    value: publisher.name,
-                    maxLength: {
-                        value: 50,
-                        message: 'Nazwa nie może przekraczać 50 znaków',
-                    },
-                })}
-                text='Nazwa wydawcy'
-            />
+      <h2>{publisher.name}</h2>
             <TextAreaField
                 error={description}
                 validation={register('description', {

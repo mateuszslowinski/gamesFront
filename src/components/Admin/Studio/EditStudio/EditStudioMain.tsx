@@ -30,7 +30,7 @@ export const EditStudioMain = ({
         handleSubmit,
         register,
         formState: {
-            errors: {name, description, ownerId, country, founded, employees, image},
+            errors: {description, ownerId, country, founded, employees, image},
         },
     } = useForm<EditStudioFormType>();
 
@@ -38,25 +38,13 @@ export const EditStudioMain = ({
     return (
         <Form
             closeConfirmMessage={closeConfirmMessage}
-            formSubtitle='Edytuj stduio'
+            formSubtitle='Edytuj studio'
             closeModal={closeModal}
             onSubmit={handleSubmit(onSubmit)}
             error={error}
             buttonTxt='Edytuj'
         >
-            <InputField
-                type='text'
-                error={name}
-                validation={register('name', {
-                    required: 'Nazwa studia jest wymagana',
-                    value: studio.name,
-                    maxLength: {
-                        value: 50,
-                        message: 'Nazwa studia nie może przekraczać 50 znaków',
-                    },
-                })}
-                text='Nazwa studia'
-            />
+            <h2>{studio.name}</h2>
             <InputField
                 type='text'
                 error={country}

@@ -7,17 +7,16 @@ import {StudioType} from 'types';
 import {GameType} from 'types';
 
 export const StudioPage = () => {
-    const {id} = useParams();
-
+    const {name} = useParams();
     const [studio, loadingStudio, errorStudio] = useApi<StudioType>({
         method: 'get',
-        url: `/studio/${id}`
-    }, id);
+        url: `/studio/${name}`
+    }, name);
 
     const [games, loadingGames, errorGames] = useApi<GameType[]>({
         method: 'get',
-        url: `/game/${id}/studio`
-    }, id);
+        url: `/game/${name}/studio`
+    },name );
 
     if (errorGames) return <ErrorMessage text={errorGames}/>
     if (errorStudio) return <ErrorMessage text={errorStudio}/>

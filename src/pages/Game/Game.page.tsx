@@ -6,12 +6,11 @@ import {Spinner} from "../../components/commons/Spinner/Spinner";
 import {GameType} from 'types';
 
 export const GamePage = () => {
-    const {id} = useParams();
+    const {name} = useParams();
     const [game, loadingGame, errorGame] = useApi<GameType>({
         method: 'get',
-        url: `/game/${id}`
-    }, id);
-
+        url: `/game/${name}`
+    }, name);
     if (errorGame) return <ErrorMessage text={errorGame}/>
     return (
         <div className='page__container'>
