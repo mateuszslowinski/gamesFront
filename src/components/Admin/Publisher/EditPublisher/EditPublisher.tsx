@@ -17,7 +17,7 @@ export const EditPublisher = ({closeModal, publisher, token}: Props) => {
 
     const onSubmit = async (data: EditPublisherFormType) => {
         try {
-            const response = await api.patch(`/publisher/${publisher.id}`, data, {
+            const response = await api.patch(`/publisher/${publisher.name}`, data, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
