@@ -11,13 +11,13 @@ interface Props {
     onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const SelectField = ({validation, options, error, text, onChange}: Props) => (
+export const SelectField = ({validation, options,text, error, onChange}: Props) => (
     <div className='select__field__container'>
         <select
             {...validation}
             onChange={onChange}
         >
-            <option value="">{text}</option>
+            <option selected hidden>{text}</option>
             {options.map(option => (
                 <option
                     key={option.id}
