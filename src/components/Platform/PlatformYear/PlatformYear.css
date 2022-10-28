@@ -1,0 +1,46 @@
+.years__container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #1E1E1F;
+}
+
+.years__container svg {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.years__container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.platforms__game__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    background-color: #222224;
+    padding: 10px;
+    margin: 2px 0;
+}
+
+.platforms__game__container a {
+    color: #FCFCFC;
+    margin: 0;
+    padding: 0;
+    transition: 0.4s;
+}
+
+.platforms__game__container a:hover {
+    background-color: transparent;
+    color: #E02735;
+}
+
+.platforms__game__container h5 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
