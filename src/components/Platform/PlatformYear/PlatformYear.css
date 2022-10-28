@@ -1,0 +1,19 @@
+.years__container {
+    margin: 5px;
+    padding: 5px;
+}
+
+.years__container div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.years__container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.years__container h5 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
