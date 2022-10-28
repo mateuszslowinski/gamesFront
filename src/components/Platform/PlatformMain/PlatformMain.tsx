@@ -28,7 +28,7 @@ export const PlatformMain = ({platforms}: Props) => {
                     : <div className='platform__details__container'>
                         <SelectField
                             options={platforms}
-                            text='Wybierz pierwsza platformę'
+                            text='Wybierz platformę'
                             onChange={e => setPlatform(e.target.value)}/>
                         {yearsPlatformData.map(year => (
                             <PlatformYear
