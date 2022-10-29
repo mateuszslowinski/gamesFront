@@ -2,6 +2,7 @@ import {NavLink} from "react-router-dom"
 import {useApi} from "../../../hooks/useApi";
 import {getToken} from "../../../hooks/getToken";
 import {Spinner} from "../Spinner/Spinner";
+import {Searchbar} from "../Searchbar/Searchbar";
 import {ErrorMessage} from "../Messages/ErrorMessage/ErrorMessage";
 import {PublisherType} from 'types';
 
@@ -35,6 +36,7 @@ export const Header = () => {
                         <NavLink to='/platform'>Platformy</NavLink>
                         {token && <NavLink to='/admin'>Admin</NavLink>}
                     </ul>
+                    <Searchbar/>
                 </div>}
         </>
     )
