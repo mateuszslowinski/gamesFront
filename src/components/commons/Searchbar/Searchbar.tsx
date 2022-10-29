@@ -1,3 +1,5 @@
+import './Searchbar.css';
+
 export const Searchbar = () => {
     return (
         <div className="searchbar_container">
