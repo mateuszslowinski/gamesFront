@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {NavLink, useNavigate} from "react-router-dom";
+import {motion} from "framer-motion";
 import {getToken} from "../../hooks/getToken";
 import {Button} from "../commons/Button/Button";
 import {EditStudio} from "../Admin/Studio/EditStudio/EditStudio";
@@ -20,7 +21,12 @@ export const Studio = ({studio, games}: Props) => {
     const {id, name, description, employees, founded, country} = studio;
 
     return (
-        <div className="studio__container">
+        <motion.div
+            className="studio__container"
+            initial={{width: 0}}
+            animate={{width: "100%"}}
+            exit={{x: window.innerWidth, transition: {duration: 0.1}}}
+        >
             {openEditForm === 1 && <EditStudio closeModal={() => setOpenEditForm(0)} studio={studio}/>}
             <Button
                 text="Wróc na poprzednią stronę"
@@ -61,6 +67,6 @@ export const Studio = ({studio, games}: Props) => {
                 ))}
                 </tbody>
             </table>
-        </div>
+        </motion.div>
     )
 }

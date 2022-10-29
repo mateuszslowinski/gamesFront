@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {getToken} from "../../hooks/getToken";
+import {motion} from "framer-motion";
 import {Button} from "../commons/Button/Button";
 import {EditPublisher} from "../Admin/Publisher/EditPublisher/EditPublisher";
 import {StudioType, PublisherType} from 'types';
@@ -20,9 +21,16 @@ export const Publisher = ({studios, publisher}: Props) => {
     const handleGoToStudioSite = (name: string) => {
         navigate(`/studio/${(name).toLowerCase()}`)
     };
-    const {name, description} = publisher
+    const {name, description} = publisher;
+
     return (
-        <div className='publisher__container'>
+        <motion.div
+            className='publisher__container'
+            initial={{width: 0}}
+            animate={{width: "100%"}}
+            exit={{x: window.innerWidth, transition: {duration: 0.1}}}
+
+        >
             {openEditForm === 1 && <EditPublisher
                 token={token}
                 publisher={publisher}
@@ -34,8 +42,9 @@ export const Publisher = ({studios, publisher}: Props) => {
             />
             }
             <h2>{name}</h2>
-            <span>Opis:<p>{description}</p></span>
-
+            <span>Opis:
+                <p>{description}</p>
+            </span>
             <h3>Studia należące do {name}:</h3>
             <div className="studios__container">
                 {studios.map(studio => (
@@ -44,6 +53,6 @@ export const Publisher = ({studios, publisher}: Props) => {
                     </div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     )
 }
