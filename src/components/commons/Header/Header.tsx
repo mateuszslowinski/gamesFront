@@ -21,9 +21,16 @@ export const Header = () => {
                 <Spinner/>
                 : <div className='header__container'>
                     <ul>
-                        <NavLink to='/'><img src="/gameicon.svg" alt=""/></NavLink>
+                        <NavLink  to='/' end>
+                            <img src="/gameicon.svg" alt=""/>
+                        </NavLink>
                         {publishers.map(publisher => (
-                            <NavLink key={publisher.id} to={`/publisher/${(publisher.name).toLowerCase()}`}>{publisher.name}</NavLink>
+                            <NavLink
+                                key={publisher.id}
+                                to={`/publisher/${(publisher.name).toLowerCase()}`}
+                            >
+                                {publisher.name}
+                            </NavLink>
                         ))}
                         <NavLink to='/platform'>Platformy</NavLink>
                         {token && <NavLink to='/admin'>Admin</NavLink>}

@@ -14,13 +14,16 @@
     width: 50px;
     height: 40px;
 }
+.active {
+    background-color: #E02735;
+}
 
 .header__container a:nth-child(1) {
     padding: 0;
 }
 
 .header__container a:nth-child(1):hover {
-    background-color: red;
+    background-color: #E02735;
     padding: 0 5px;
 }
 
