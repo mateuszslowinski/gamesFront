@@ -16,7 +16,7 @@ export const StudioPage = () => {
     const [games, loadingGames, errorGames] = useApi<GameType[]>({
         method: 'get',
         url: `/game/${name}/studio`
-    },name );
+    }, name);
 
     if (errorGames) return <ErrorMessage text={errorGames}/>
     if (errorStudio) return <ErrorMessage text={errorStudio}/>

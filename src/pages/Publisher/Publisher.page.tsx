@@ -1,14 +1,12 @@
-import {Publisher} from "../../components/Publisher/Publisher";
-import {useApi} from "../../hooks/useApi";
 import {useParams} from "react-router-dom";
-import {StudioType, PublisherType} from 'types';
+import {useApi} from "../../hooks/useApi";
+import {Publisher} from "../../components/Publisher/Publisher";
 import {ErrorMessage} from "../../components/commons/Messages/ErrorMessage/ErrorMessage";
 import {Spinner} from "../../components/commons/Spinner/Spinner";
-
+import {StudioType, PublisherType} from 'types';
 
 export const PublisherPage = () => {
     const {name} = useParams();
-
     const [publisher, loadingPublisher, errorPublisher] = useApi<PublisherType>({
         method: 'get',
         url: `/publisher/${name}`
@@ -17,10 +15,10 @@ export const PublisherPage = () => {
     const [studios, loadingStudios, errorStudios] = useApi<StudioType[]>({
         method: 'get',
         url: `/publisher/${name}/studios`
-    },name);
+    }, name);
 
     if (errorStudios) return <ErrorMessage text={errorStudios}/>
-    if (errorPublisher ) return <ErrorMessage text={errorPublisher}/>
+    if (errorPublisher) return <ErrorMessage text={errorPublisher}/>
     return (
         <div className='page__container'>
             {
