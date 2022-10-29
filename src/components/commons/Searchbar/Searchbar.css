@@ -1,0 +1,15 @@
+.searchbar_container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.searchbar_container input {
+    font-size: 1.5rem;
+    padding: 4px;
+    outline: none;
+}
+
+.searchbar_container button {
+    text-transform: none;
+}

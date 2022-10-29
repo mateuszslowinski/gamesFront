@@ -1,5 +1,6 @@
 .header__container,.header__container ul {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
