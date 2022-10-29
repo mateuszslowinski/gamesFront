@@ -1,5 +1,7 @@
 import {PlatformMain} from "./PlatformMain/PlatformMain";
+import { motion } from "framer-motion";
 import {PlatformType} from 'types';
+
 import './Platform.css';
 
 interface Props {
@@ -7,8 +9,13 @@ interface Props {
 }
 
 export const Platform = ({platforms}: Props) => (
-    <div className='platforms__container'>
+    <motion.div
+        className='platforms__container'
+        initial={{width: 0}}
+        animate={{width: "100%"}}
+        exit={{x: window.innerWidth, transition:{duration: 0.1}}}
+    >
         <p>Wybierz dowolną platformę by zobaczyć wydane na nią gry w poszczególnych latach.</p>
         <PlatformMain platforms={platforms}/>
-    </div>
+    </motion.div>
 )
