@@ -2,6 +2,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useApi} from "../../hooks/useApi";
 import {getToken} from "../../hooks/getToken";
+import {motion} from "framer-motion";
 import {Spinner} from "../commons/Spinner/Spinner";
 import {ErrorMessage} from "../commons/Messages/ErrorMessage/ErrorMessage";
 import {Button} from "../commons/Button/Button";
@@ -27,7 +28,12 @@ export const Game = ({game}: Props) => {
 
     if (!studio || errorStudio) return <ErrorMessage text={errorStudio}/>
     return (
-        <div className='game__page__container'>
+        <motion.div
+            className='game__page__container'
+            initial={{width: 0}}
+            animate={{width: "100%"}}
+            exit={{x: window.innerWidth, transition: {duration: 0.1}}}
+        >
             {openEditForm === 1
                 && <EditGame
                     closeModal={() => setOpenEditForm(0)}
@@ -53,7 +59,8 @@ export const Game = ({game}: Props) => {
                         />
                         <div className="game__details">
                             <span>Deweloper:
-                             <p className='publisher__navigate'
+                             <p
+                                 className='publisher__navigate'
                                 onClick={() => navigate(`../studio/${studio.id}`)}
                              >
                                  {studio.name}
@@ -68,6 +75,6 @@ export const Game = ({game}: Props) => {
                         </div>
                     </>
                 )}
-        </div>
+        </motion.div>
     )
 }
