@@ -1,4 +1,4 @@
-.searchbar_container{
+.searchbar_container {
     display: flex;
     align-items: center;
     margin-right: 10px;
@@ -10,6 +10,6 @@
     outline: none;
 }
 
-.searchbar_container  button {
+.searchbar_container button {
     text-transform: none;
 }
