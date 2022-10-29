@@ -1,7 +1,9 @@
 import {useState} from "react";
-import {AiOutlineArrowDown} from 'react-icons/ai'
 import {NavLink} from "react-router-dom";
+import { motion } from "framer-motion";
+import {AiOutlineArrowDown} from 'react-icons/ai'
 import {GameType} from 'types';
+
 import './PlatformYear.css';
 
 interface Props {
@@ -24,12 +26,17 @@ export const PlatformYear = ({year, platformGames}: Props) => {
                 />
             </div>
             {open ? platformGames?.filter(game => game.releaseDate.toString().slice(0, 4) === year).map(game => (
-                <div className='platforms__game__container' key={game.id}>
+                <motion.div
+                    key={game.id}
+                    className='platforms__game__container'
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                >
                     <NavLink to={`../game/${game.name}`}>
                         <h5>{game.name}</h5>
                     </NavLink>
                     <h5>{game.releaseDate.toString().slice(0, 10)}</h5>
-                </div>
+                </motion.div>
             )) : null}
         </>
     )
