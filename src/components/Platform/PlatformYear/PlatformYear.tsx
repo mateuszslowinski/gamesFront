@@ -5,6 +5,7 @@ import {AiOutlineArrowDown} from 'react-icons/ai'
 import {GameType} from 'types';
 
 import './PlatformYear.css';
+import {convertTime} from "../../../utils/convertTime";
 
 interface Props {
     year: string
@@ -35,7 +36,7 @@ export const PlatformYear = ({year, platformGames}: Props) => {
                     <NavLink to={`../game/${game.name}`}>
                         <h5>{game.name}</h5>
                     </NavLink>
-                    <h5>{game.releaseDate.toString().slice(0, 10)}</h5>
+                    <h5>{convertTime(game.releaseDate)}</h5>
                 </motion.div>
             )) : null}
         </>
