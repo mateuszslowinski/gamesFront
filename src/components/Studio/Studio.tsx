@@ -8,6 +8,7 @@ import {StudioType} from 'types';
 import {GameType} from 'types';
 
 import './Studio.css';
+import {convertTime} from "../../utils/convertTime";
 
 interface Props {
     studio: StudioType
@@ -62,7 +63,7 @@ export const Studio = ({studio, games}: Props) => {
                 {games.map(game => (
                     <tr key={game.id}>
                         <th><NavLink to={`../game/${game.name}`}>{game.name}</NavLink></th>
-                        <th>{game.releaseDate.toString().slice(0, 10)}</th>
+                        <th>{convertTime(game.releaseDate)}</th>
                     </tr>
                 ))}
                 </tbody>

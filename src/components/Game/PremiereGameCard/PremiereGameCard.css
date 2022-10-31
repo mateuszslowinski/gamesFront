@@ -1,0 +1,24 @@
+.game__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #737373;
+    width: 20%;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.game__container h3 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.game__container h4 {
+    font-size: 1.8rem;
+}
+
+.game__container img {
+    width: 300px;
+}

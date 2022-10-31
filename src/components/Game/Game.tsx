@@ -7,6 +7,7 @@ import {Spinner} from "../commons/Spinner/Spinner";
 import {ErrorMessage} from "../commons/Messages/ErrorMessage/ErrorMessage";
 import {Button} from "../commons/Button/Button";
 import {EditGame} from "../Admin/Game/EditGame/EditGame";
+import {convertTime} from "../../utils/convertTime";
 import {GameType} from 'types';
 import {StudioType} from 'types';
 
@@ -61,13 +62,13 @@ export const Game = ({game}: Props) => {
                             <span>Deweloper:
                              <p
                                  className='publisher__navigate'
-                                onClick={() => navigate(`../studio/${studio.id}`)}
+                                 onClick={() => navigate(`../studio/${studio.id}`)}
                              >
                                  {studio.name}
                              </p>
                             </span>
                             <span>Data wydania:
-                                <p>{releaseDate.toString().slice(0, 10)}</p>
+                                <p>{convertTime(releaseDate)}</p>
                             </span>
                         </div>
                         <div className='game__description'>
