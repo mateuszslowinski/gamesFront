@@ -20,12 +20,8 @@
 }
 
 .header__container a:nth-child(1) {
+    background-color: whitesmoke;
     padding: 0;
-}
-
-.header__container a:nth-child(1):hover {
-    background-color: #E02735;
-    padding: 0 5px;
 }
 
 .header__container ul {
@@ -51,5 +47,5 @@ a:first-letter {
 
 a:hover {
     background-color: #E02735;
-    padding: 10px 5px;
+    padding: 10px 1px 10px 10px;
 }

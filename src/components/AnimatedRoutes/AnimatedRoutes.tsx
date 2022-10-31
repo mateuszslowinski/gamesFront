@@ -14,7 +14,7 @@ export const AnimatedRoutes = () => {
     const location = useLocation();
 
     return (
-        <AnimatePresence>
+        <AnimatePresence mode={'wait'}>
             <Routes location={location} key={location.pathname}>
                 <Route element={<ProtectedRoutes/>}>
                     <Route path='/admin' element={<AdminPage/>}/>
