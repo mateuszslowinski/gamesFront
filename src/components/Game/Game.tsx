@@ -33,7 +33,7 @@ export const Game = ({game}: Props) => {
             className='game__page__container'
             initial={{width: 0}}
             animate={{width: "100%"}}
-            exit={{x: window.innerWidth, transition: {duration: 0.1}}}
+            exit={{x: window.innerWidth, transition: {duration: 0.5}}}
         >
             {openEditForm === 1
                 && <EditGame

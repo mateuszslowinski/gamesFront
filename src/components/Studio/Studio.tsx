@@ -26,7 +26,7 @@ export const Studio = ({studio, games}: Props) => {
             className="studio__container"
             initial={{width: 0}}
             animate={{width: "100%"}}
-            exit={{x: window.innerWidth, transition: {duration: 0.1}}}
+            exit={{x: window.innerWidth, transition: {duration: 0.5}}}
         >
             {openEditForm === 1 && <EditStudio closeModal={() => setOpenEditForm(0)} studio={studio}/>}
             <Button
