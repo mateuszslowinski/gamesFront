@@ -2,6 +2,7 @@ import {useSearchParams} from "react-router-dom";
 import {useApi} from "../../../hooks/useApi";
 import {GameType} from 'types'
 import {Spinner} from "../../commons/Spinner/Spinner";
+import {ErrorMessage} from "../../commons/Messages/ErrorMessage/ErrorMessage";
 
 export const SearchGames = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -11,6 +12,7 @@ export const SearchGames = () => {
         url: `/game/search/${term}`
     }, [term]);
 
+    if (errorGames) return <ErrorMessage text={errorGames}/>
     return (
         <div className='page__container'>
             {loadingGames
