@@ -9,6 +9,7 @@ import {GamePage} from "../../pages/Game/Game.page";
 import {PlatformPage} from "../../pages/Platform/Platform.page";
 import {AdminPage} from "../../pages/AdminPage/AdminPage";
 import {ProtectedRoutes} from "../../utils/ProtectedRoutes";
+import {SearchGames} from "../Game/SearchGames/SearchGames";
 
 export const AnimatedRoutes = () => {
     const location = useLocation();
@@ -24,6 +25,7 @@ export const AnimatedRoutes = () => {
                 <Route path='/publisher/:name' element={<PublisherPage/>}/>
                 <Route path='/studio/:name' element={<StudioPage/>}/>
                 <Route path='/game/:name' element={<GamePage/>}/>
+                <Route path='/game' element={<SearchGames/>}/>
                 <Route path='/platform' element={<PlatformPage/>}/>
             </Routes>
         </AnimatePresence>
