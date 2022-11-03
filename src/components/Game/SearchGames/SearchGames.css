@@ -1,0 +1,40 @@
+.search__results__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.search__results__container h2 {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.search__results__container__game {
+    width: 23%;
+    margin: 5px;
+    padding: 15px;
+    background-color: #292A2B;
+}
+
+.search__results__container__game h3 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+}
+
+.search__results__container__game p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.search__results__container__game p:last-of-type {
+    margin-bottom: 20px;
+}
+
+.search__results__container__game a {
+    font-size: 1.5rem;
+    color: #FCFCFC;
+    transition: .7s;
+    padding: 5px;
+}

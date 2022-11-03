@@ -1,8 +1,11 @@
 import {useSearchParams} from "react-router-dom";
 import {useApi} from "../../../hooks/useApi";
-import {GameType} from 'types'
 import {Spinner} from "../../commons/Spinner/Spinner";
 import {ErrorMessage} from "../../commons/Messages/ErrorMessage/ErrorMessage";
+import {SearchGamesResults} from "./SearchGamesResults/SearchGamesResults";
+import {GameType} from 'types'
+
+import './SearchGames.css';
 
 export const SearchGames = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -17,7 +20,9 @@ export const SearchGames = () => {
         <div className='page__container'>
             {loadingGames
                 ? <Spinner/>
-                : games?.length !== 0 ? <h2>wyniki</h2> : <h2>brak wynikow wyszukiwania</h2>
+                : games?.length !== 0
+                    ? <SearchGamesResults games={games}/>
+                    : <h2>brak wynikow wyszukiwania</h2>
             }
         </div>
     )
