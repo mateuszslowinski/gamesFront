@@ -1,0 +1,14 @@
+.introduction__container {
+    background: #292A2B;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.introduction__container h2 {
+    font-size: 3rem;
+}
+
+.introduction__container p {
+    font-size: 1.4rem;
+}

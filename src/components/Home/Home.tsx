@@ -1,8 +1,8 @@
-import {PublisherType} from 'types';
-
-import './Home.css';
 import {NavLink} from "react-router-dom";
 import {PremiereGameCard} from "../Game/PremiereGameCard/PremiereGameCard";
+import {Introduction} from "./Introduction/Introduction";
+import {PublisherType} from 'types';
+import './Home.css';
 
 interface Props {
     publishers: PublisherType[]
@@ -10,13 +10,9 @@ interface Props {
 
 export const Home = ({publishers}: Props) => {
 
-
     return (
         <div className='home__container'>
-            <div>
-                <h2>Witaj na games world</h2>
-                <p>opis tego co się tu znajduje</p>
-            </div>
+            <Introduction/>
             <div>
                 <h4>Wydawcy:</h4>
                 {publishers.map(publisher => (
