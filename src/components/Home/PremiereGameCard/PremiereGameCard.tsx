@@ -22,8 +22,7 @@ export const PremiereGameCard = () => {
                         src={`${process.env.REACT_APP_API_URL}/game/photo/${game.id}`}
                         alt={`${game.name} logo`}
                     />
-                </>
-            }
+                </>}
         </div>
     )
 }

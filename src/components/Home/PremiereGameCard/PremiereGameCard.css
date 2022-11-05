@@ -3,16 +3,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #737373;
-    width: 20%;
-    margin: 0 auto;
-    padding: 10px;
+    width: 100%;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #292A2B;
     text-align: center;
 }
 
 .game__container h3 {
-    font-size: 2rem;
-    margin: 10px 0;
+    margin: 0 0 20px;
+    font-size: 2.4rem;
 }
 
 .game__container h4 {

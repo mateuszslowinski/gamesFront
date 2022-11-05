@@ -1,4 +1,4 @@
-import {PremiereGameCard} from "../Game/PremiereGameCard/PremiereGameCard";
+import {PremiereGameCard} from "./PremiereGameCard/PremiereGameCard";
 import {IntroductionSection} from "./IntroductionSection/IntroductionSection";
 import {PublisherSection} from "./PublisherSection/PublisherSection";
 import {PublisherType} from 'types';
@@ -17,9 +17,7 @@ export const Home = ({publishers}: Props) => {
             <div>
                 losowe studia
             </div>
-            <div>
-                <PremiereGameCard/>
-            </div>
+            <PremiereGameCard/>
         </div>
 
     )
