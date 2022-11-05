@@ -1,0 +1,46 @@
+.random__studios__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 5px auto;
+    padding: 20px;
+    background: #1E1E1F;
+}
+
+.random__studios__container h4 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.random__studio__container {
+    display: flex;
+    width: 100%;
+}
+
+.random__studio__details__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    padding: 10px;
+    background-color: #292A2B;
+}
+
+.random__studio__details__container h4 {
+    margin-top: 5px;
+    font-size: 1.8rem;
+}
+
+.random__studio__details__container img {
+    width: 250px;
+}
+
+.random__studio__details__container a {
+    padding: 10px;
+    margin: 10px;
+    color: #FCFCFC;
+    font-size: 1.4rem;
+    transition: 0.8s;
+    text-align: center;
+}

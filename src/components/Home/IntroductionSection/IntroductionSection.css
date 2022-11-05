@@ -1,0 +1,16 @@
+.introduction__container {
+    width: 100%;
+    padding: 20px;
+    margin: 5px auto;
+    background: #1E1E1F;
+    text-align: center;
+}
+
+.introduction__container h2 {
+    font-size: 3rem;
+}
+
+.introduction__container p {
+    font-size: 1.3rem;
+    padding: 5px;
+}
