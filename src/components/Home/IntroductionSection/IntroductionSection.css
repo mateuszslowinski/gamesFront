@@ -1,8 +1,9 @@
 .introduction__container {
-    background: #292A2B;
+    width: 100%;
     padding: 20px;
-    text-align: center;
     margin-bottom: 5px;
+    background: #292A2B;
+    text-align: center;
 }
 
 .introduction__container h2 {
