@@ -1,6 +1,7 @@
 import {PremiereGameCard} from "./PremiereGameCard/PremiereGameCard";
 import {IntroductionSection} from "./IntroductionSection/IntroductionSection";
 import {PublisherSection} from "./PublisherSection/PublisherSection";
+import {RandomStudios} from "./RandomStudios/RandomStudios";
 import {PublisherType} from 'types';
 import './Home.css';
 
@@ -14,9 +15,7 @@ export const Home = ({publishers}: Props) => {
         <div className='home__container'>
             <IntroductionSection/>
             <PublisherSection publishers={publishers}/>
-            <div>
-                losowe studia
-            </div>
+            <RandomStudios/>
             <PremiereGameCard/>
         </div>
 
