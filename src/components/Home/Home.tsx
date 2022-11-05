@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom";
 import {PremiereGameCard} from "../Game/PremiereGameCard/PremiereGameCard";
-import {Introduction} from "./Introduction/Introduction";
+import {IntroductionSection} from "./IntroductionSection/IntroductionSection";
 import {PublisherType} from 'types';
 import './Home.css';
 
@@ -12,7 +12,7 @@ export const Home = ({publishers}: Props) => {
 
     return (
         <div className='home__container'>
-            <Introduction/>
+            <IntroductionSection/>
             <div>
                 <h4>Wydawcy:</h4>
                 {publishers.map(publisher => (
