@@ -62,7 +62,7 @@ export const Game = ({game}: Props) => {
                             <span>Deweloper:
                              <p
                                  className='publisher__navigate'
-                                 onClick={() => navigate(`../studio/${studio.id}`)}
+                                 onClick={() => navigate(`../studio/${studio.name}`)}
                              >
                                  {studio.name}
                              </p>
