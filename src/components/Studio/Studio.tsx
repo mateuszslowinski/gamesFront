@@ -4,11 +4,11 @@ import {motion} from "framer-motion";
 import {getToken} from "../../hooks/getToken";
 import {Button} from "../commons/Button/Button";
 import {EditStudio} from "../Admin/Studio/EditStudio/EditStudio";
+import {convertTime} from "../../utils/convertTime";
 import {StudioType} from 'types';
 import {GameType} from 'types';
 
 import './Studio.css';
-import {convertTime} from "../../utils/convertTime";
 
 interface Props {
     studio: StudioType
@@ -20,6 +20,10 @@ export const Studio = ({studio, games}: Props) => {
     const navigate = useNavigate();
     const token = getToken();
     const {id, name, description, employees, founded, country} = studio;
+
+    const sortedGamesByDate = (games.sort((a, b) => {
+        return new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime()
+    }))
 
     return (
         <motion.div
@@ -60,7 +64,7 @@ export const Studio = ({studio, games}: Props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {games.map(game => (
+                {sortedGamesByDate.map(game => (
                     <tr key={game.id}>
                         <th><NavLink to={`../game/${game.name}`}>{game.name}</NavLink></th>
                         <th>{convertTime(game.releaseDate)}</th>
