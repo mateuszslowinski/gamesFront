@@ -1,4 +1,4 @@
-.publisher__container, .studios__container, .studio{
+.publisher__container, .studios__container, .studio {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@
 
 .publisher__container h2 {
     font-size: 4rem;
-    margin: 10px 0 15px;
+    margin: 0 0 10px;
 }
 
 .publisher__container span p {
@@ -33,24 +33,26 @@
 }
 
 .studio {
-    width: 180px;
-    height: 180px;
+    width: 100px;
+    height: 100px;
     margin: 10px;
     background-color: #1E1E1F;
     border-radius: 20px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.7s;
 }
 
 .studio:hover {
     background-color: #E02735;
+    transform: scale(1.1)
 }
 
 .studio p {
     background-color: transparent;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+    padding: 5px;
 }
 
-h2,h3:first-letter,p:first-letter {
+h2, h3:first-letter, p:first-letter {
     text-transform: uppercase;
 }
