@@ -4,23 +4,24 @@
     align-items: center;
     justify-content: center;
     width: 80vw;
-    padding: 20px 10px;
+    padding: 10px 10px;
     text-align: center;
     background-color: #1E1E1F;
 }
 
 .studio__container img, .studio__container p, .studio__container table, .studio__container {
-    margin: 10px;
+    margin: 5px;
 }
 
 .studio__container img {
     width: 80%;
 }
 
-.studio__container p:nth-child(2) {
+.studio__container img + p {
     background-color: #737373;
-    padding: 10px;
-    font-size: 1.4rem;
+    padding: 10px 15px;
+    font-size: 1.3rem;
+    width: 80%;
 }
 
 .studio__container p:nth-last-child(2) {
@@ -31,7 +32,7 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    margin: 20px 0;
+    margin: 15px 0 10px;
     text-align: center;
 }
 
