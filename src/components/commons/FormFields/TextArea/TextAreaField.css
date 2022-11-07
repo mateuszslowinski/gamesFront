@@ -1,0 +1,16 @@
+.text__area__field, .text__error__message {
+    padding: 5px;
+    margin: 5px;
+    font-size: 1.4rem;
+}
+
+.text__area__field {
+    width: 30%;
+    height: 200px;
+}
+
+.text__error__message {
+    color: #1E1E1F;
+    background-color: #E02735;
+    border-radius: 5px;
+}

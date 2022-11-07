@@ -1,0 +1,25 @@
+.checkbox__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox__container h4 {
+    font-size: 1.7rem;
+    margin-top: 10px;
+    font-weight: normal;
+    padding: 5px;
+}
+
+.checkbox__container div {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.checkbox__container div label {
+    margin-right: 5px;
+    font-size: 1.4rem;
+    padding: 5px;
+    cursor: pointer;
+}

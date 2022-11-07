@@ -1,0 +1,30 @@
+.platforms__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.platforms__container p {
+    font-size: 1.4rem;
+    margin: 10px 0;
+}
+
+.platform__details__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: #292A2B;
+}
+
+.platforms__container select {
+    background-color: transparent;
+    color: #FCFCFC;
+}
+
+.platforms__container option {
+    background-color: #292A2B;
+}
+

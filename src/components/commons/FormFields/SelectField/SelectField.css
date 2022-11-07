@@ -1,0 +1,14 @@
+.select__field__container select{
+    padding: 10px;
+    border:1px solid #FCFCFC;
+    background-color: #292A2B;
+    color: #7e7e7e;
+    margin: 10px;
+    font-size: 1.6rem;
+    transition: border .3s linear;
+    outline:none;
+}
+.select__field__container select:focus{
+    color:#f7f7f7;
+    border:1px solid #E02735;
+}

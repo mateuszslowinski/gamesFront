@@ -1,0 +1,56 @@
+.game__page__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: center;
+    padding: 40px 0;
+    background-color: #292A2B;
+}
+
+.game__page__container h3 {
+    font-size: 3.5rem;
+    margin: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.game__page__container img {
+    width: 60%;
+    margin: 20px;
+}
+
+.game__details {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.game__details span, .game__description p {
+    font-size: 1.3rem;
+}
+
+.game__details p {
+    font-size: 1.6rem;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.publisher__navigate {
+    cursor: pointer;
+    transition: 0.6s;
+}
+.publisher__navigate:hover{
+    background: red;
+}
+
+.game__description p {
+    background-color: #737373;
+    padding: 10px 15px;
+    width: 80%;
+    font-size: 1.3rem;
+}
