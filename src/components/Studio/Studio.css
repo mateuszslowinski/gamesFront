@@ -15,12 +15,14 @@
 
 .studio__container img {
     width: 80%;
+    margin-bottom: 5px;
 }
 
 .studio__container img + p {
     background-color: #737373;
     padding: 10px 15px;
     font-size: 1.3rem;
+    margin-top: 10px;
     width: 80%;
 }
 
