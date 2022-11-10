@@ -21,6 +21,7 @@
 .search__results__container__game h3 {
     font-size: 2.4rem;
     margin-bottom: 20px;
+    min-height:70px;
 }
 
 .search__results__container__game p {

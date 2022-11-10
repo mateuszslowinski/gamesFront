@@ -21,7 +21,7 @@ export const SearchGames = () => {
             {loadingGames
                 ? <Spinner/>
                 : games?.length !== 0
-                    ? <SearchGamesResults games={games}/>
+                    ? <SearchGamesResults games={games} term={term ?? ''}/>
                     : <h2>brak wynikow wyszukiwania</h2>
             }
         </div>

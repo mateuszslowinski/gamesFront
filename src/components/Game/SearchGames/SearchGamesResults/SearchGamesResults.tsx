@@ -5,12 +5,13 @@ import {GameType} from 'types'
 
 interface Props {
     games: GameType[] | null
+    term?:string
 }
 
-export const SearchGamesResults = ({games}: Props) => {
+export const SearchGamesResults = ({games,term}: Props) => {
     return (
         <div className='search__results__container'>
-            <h2>Wyniki wyszukiwania:</h2>
+            <h2>Wyniki wyszukiwania dla {term}:</h2>
             {games?.map(game => (
                 <motion.div
                     key={game.id}
