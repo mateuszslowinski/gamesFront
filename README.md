@@ -30,7 +30,7 @@
 ## Setup
 To run this project, first you have go to
 
-https://github.com/mateuszslowinski/gamesBackand
+https://github.com/mateuszslowinski/gamesBack
 
 Then clone this repo to your desktop and to install all the dependencies by:
 ```sh
