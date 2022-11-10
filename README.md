@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# Games World - frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### The goal of this project is has place where I can see all current and past games released on available platforms.  
 
-## Available Scripts
+![](public/readme/home.png)
 
-In the project directory, you can run:
 
-### `npm start`
+## Features:
+### Admin panel - application has login page where admin can log in and get access for admin panel where can add and edit data. Application using token to authorize admin actions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![](public/readme/admin.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Searchbar - user can use search bar to find any game which is in database. You can write only part of title game, and you see connected results.
 
-### `npm test`
+![](public/readme/searchResult.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Dates - all dates on app are listed chronologically.
 
-### `npm run build`
+![](public/readme/platform.png)
+![](public/readme/studioPage.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### TECHNOLOGY:
+- TypeScript
+- ReactJS
+- React-router-dom
+- React-hook-form 
+- Axios
+- Framer-motion
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup
+To run this project, first you have go to
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://github.com/mateuszslowinski/gamesBackand
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Then clone this repo to your desktop and to install all the dependencies by:
+```sh
+  npm install 
+  ```
+Next you can run by:
+```sh
+  npm start
+```
+  
